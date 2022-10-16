@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+https://svetlana0905.github.io/React-Typescript/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
