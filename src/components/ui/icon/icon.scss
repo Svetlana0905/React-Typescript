@@ -1,0 +1,6 @@
+.icon-wrapper {
+  @apply relative self-center inline-block h-5 w-5;
+  & svg {
+    @apply absolute h-5 w-5;
+  }
+}

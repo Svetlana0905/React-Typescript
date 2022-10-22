@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { IProduct } from "../types/types";
-import { ErrorMessage } from "./ErrorMessage";
-import { StandartButton } from "./ui/buttons/buttons";
-import { StandartInput } from "./ui/inputs/inputs";
+import { IProduct } from "../../types/types";
+import { ErrorMessage } from "../error/ErrorMessage";
+import { StandartButton } from "../ui/buttons/buttons";
+import { StandartInput } from "../ui/inputs/inputs";
 
 const productData: IProduct = {
   title: "",

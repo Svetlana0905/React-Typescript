@@ -25,3 +25,16 @@ export interface IProduct {
   image: string;
   rating: IRating;
 }
+
+export interface INavLinks {
+  key: string;
+  path: string;
+  title: string;
+  icon: any;
+  breadcrumb: boolean;
+  submenu?: INavLinks;
+}
+
+export interface ServerResponse<T> {
+  data: T[];
+}

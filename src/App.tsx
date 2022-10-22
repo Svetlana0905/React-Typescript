@@ -1,9 +1,9 @@
 import "./styles/App.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { AboutPage } from "./pages/AboutPage";
-import { ProductPage } from "./pages/ProductPage";
-import { Layout } from "./components/Layout";
+import { AboutPage } from "./views/aboutPage/AboutPage";
+import { ProductPage } from "./views/productPage/ProductPage";
+import { Layout } from "./layouts/Layout";
 
 const App: React.FC = (): JSX.Element => {
   return (
