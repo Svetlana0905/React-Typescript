@@ -6,7 +6,10 @@ export function Navigation() {
       <span className="font-bold">React Typescript 2022</span>
 
       <span>
-        <Link to="/React-Typescript" className="mr-2">
+        <Link to="/" className="mr-2">
+          Home
+        </Link>
+        <Link to="product" className="mr-2">
           Products
         </Link>
         <Link to="about">About</Link>

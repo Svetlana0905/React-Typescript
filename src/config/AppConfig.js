@@ -1,1 +1,1 @@
-export const PREFIX_PATH = "/";
+export const PREFIX_PATH = "";

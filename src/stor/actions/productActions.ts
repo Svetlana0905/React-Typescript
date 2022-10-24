@@ -1,15 +1,43 @@
 import { AppDispatch } from "..";
 import axios from "../../axios";
-import { productSlice } from "../slices/ProductSlice";
+import { IProduct } from "../../types/types";
+import { productsSlice } from "../slices/ProductsSlice";
 
-export const fetchProduct = () => {
-  return async (dispath: AppDispatch) => {
+export const fetchProducts = () => {
+  return async (dispatch: AppDispatch) => {
     try {
-      dispath(productSlice.actions.fetching());
-      const response = await axios.get("products");
-      dispath(productSlice.actions.fetchiSuccsess(response.data));
+      dispatch(productsSlice.actions.fetching());
+      const response = await axios.get<IProduct[]>("products");
+      dispatch(productsSlice.actions.fetchisSuccsess(response.data));
     } catch (e) {
-      dispath(productSlice.actions.fetchiError(e as Error));
+      dispatch(productsSlice.actions.fetchisError(e as Error));
     }
+  };
+};
+export const fetchAddProduct = (productData: IProduct) => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      dispatch(productsSlice.actions.fetching());
+      const response = await axios.post<IProduct>("products", productData);
+      dispatch(productsSlice.actions.addProduct(response.data));
+    } catch (e) {
+      dispatch(productsSlice.actions.fetchisError(e as Error));
+    }
+  };
+};
+export const fetchDeleteProduct = (id: number) => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      dispatch(productsSlice.actions.fetching());
+      const response = await axios.delete<IProduct>(`products/${id}`);
+      dispatch(productsSlice.actions.deleteProduct(response.data));
+    } catch (e) {
+      dispatch(productsSlice.actions.fetchisError(e as Error));
+    }
+  };
+};
+export const clearM = (s: string) => {
+  return (dispatch: AppDispatch) => {
+    dispatch(productsSlice.actions.clearMessage(s));
   };
 };

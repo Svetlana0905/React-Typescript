@@ -1,32 +1,24 @@
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hook";
-import { fetchProduct } from "../../stor/actions/productActions";
+import { fetchProducts } from "../../stor/actions/productActions";
 import { CreateProductForm } from "../../components/cteateNewProduct/CreateProductForm";
 import { ErrorMessage } from "../../components/error/ErrorMessage";
-// import { useProducts } from "../../components/hooks/products";
 import { Loading } from "../../components/ui/loading/Loading";
 import { Modal } from "../../components/ui/modal/Modal";
 import { Product } from "../../components/product/Product";
 import { RoundButton } from "../../components/ui/buttons/buttons";
 
-import { IProduct } from "../../types/types";
-
-export const ProductPage = () => {
-  // const { loading, products, error, addProduct } = useProducts();
+export const ProductPage: React.FC = () => {
   const { error, loading, products } = useAppSelector((state) => state.product);
-  const [openModal, setOpenModal] = useState(false);
-  const dispath = useAppDispatch();
+  const [isOpenModal, setOpenModal] = useState(false);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispath(fetchProduct());
-  }, [dispath]);
-  useEffect(() => {
-    console.log(loading);
-  });
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
-  const createHandler = (product: IProduct) => {
+  const openModal = () => {
     setOpenModal(false);
-    // addProduct(product);
   };
 
   return (
@@ -38,9 +30,9 @@ export const ProductPage = () => {
           <Product props={product} key={product.id} />
         ))}
       </div>
-      {openModal && (
+      {isOpenModal && (
         <Modal title="Title for modal" onClose={() => setOpenModal(false)}>
-          <CreateProductForm onCreate={createHandler} />{" "}
+          <CreateProductForm onCreate={openModal} />
         </Modal>
       )}
       <RoundButton

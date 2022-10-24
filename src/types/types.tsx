@@ -17,7 +17,7 @@ export interface IRating {
 }
 
 export interface IProduct {
-  id?: number;
+  id: number;
   title: string;
   price: number;
   description: string;
@@ -25,16 +25,20 @@ export interface IProduct {
   image: string;
   rating: IRating;
 }
-
-export interface INavLinks {
+export interface ISub {
   key: string;
   path: string;
   title: string;
   icon: any;
   breadcrumb: boolean;
-  submenu?: INavLinks;
+  submenu?: any;
 }
 
-export interface ServerResponse<T> {
-  data: T[];
-}
+export type INavLinks<T> = {
+  key: string;
+  path: string;
+  title: string;
+  icon: any;
+  breadcrumb: boolean;
+  submenu?: T[];
+};

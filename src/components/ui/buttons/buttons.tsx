@@ -6,6 +6,7 @@ interface ButtonProps {
   children: React.ReactNode;
   type: any;
   triggerStyle?: boolean;
+  disabled?: boolean;
 }
 
 export const StandartButton: FC<ButtonProps> = ({
@@ -51,6 +52,28 @@ export const ProductButton: FC<ButtonProps> = ({
           : "product-button "
       }
       type={type}
+    >
+      {children}
+    </button>
+  );
+};
+export const DeleteButton: FC<ButtonProps> = ({
+  children,
+  handleClick,
+  triggerStyle,
+  disabled,
+  type,
+}) => {
+  return (
+    <button
+      onClick={handleClick}
+      className={
+        triggerStyle
+          ? "product-button product-button__delete product-button__delete-active"
+          : "product-button product-button__delete"
+      }
+      type={type}
+      disabled={disabled}
     >
       {children}
     </button>

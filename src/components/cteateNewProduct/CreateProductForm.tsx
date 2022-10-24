@@ -1,11 +1,13 @@
-import axios from "axios";
 import React, { useState } from "react";
+import { useAppDispatch } from "../../hook";
 import { IProduct } from "../../types/types";
 import { ErrorMessage } from "../error/ErrorMessage";
 import { StandartButton } from "../ui/buttons/buttons";
 import { StandartInput } from "../ui/inputs/inputs";
+import { fetchAddProduct } from "../../stor/actions/productActions";
 
 const productData: IProduct = {
+  id: 1,
   title: "",
   price: 13.5,
   description: "",
@@ -22,6 +24,7 @@ interface CreateProductProps {
 }
 
 export const CreateProductForm = ({ onCreate }: CreateProductProps) => {
+  const dispatch = useAppDispatch();
   const [valueTitle, setValueTitle] = useState("");
   const [valueDescription, setValueDescription] = useState("");
   const [error, setError] = useState("");
@@ -40,11 +43,7 @@ export const CreateProductForm = ({ onCreate }: CreateProductProps) => {
     }
     productData.title = valueTitle;
     productData.description = valueDescription;
-    const response = await axios.post<IProduct>(
-      "https://fakestoreapi.com/products",
-      productData
-    );
-    onCreate(response.data);
+    dispatch(fetchAddProduct(productData));
   };
 
   return (

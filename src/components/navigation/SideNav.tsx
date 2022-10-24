@@ -1,18 +1,32 @@
-import navigationConfig from "../../config/NavigationConfig";
-// import { IProduct } from "../../types/types";
+import { Link } from "react-router-dom";
+import { INavLinks, ISub } from "../../types/types";
 
-export const SideNav = () => {
+interface ProductProps {
+  props: Array<INavLinks<ISub>>;
+}
+
+export const SideNav: React.FC<ProductProps> = ({ props }) => {
   return (
-    <div className="flex flex-col gap-5 w-60 pl-3 pt-4 bg-gray-100 min-h-full drop-shadow-gray-300 drop-shadow-md hover:shadow-xl ">
-      {navigationConfig.map((menu) =>
-        menu.submenu.length > 0 ? (
+    <nav className="flex flex-col gap-5 w-60 pl-3 pt-4 bg-gray-100 min-h-full shadow-sky-800/50 shadow-md hover:shadow-xl hover:shadow-sky-900/50">
+      {props.map((menu) =>
+        menu.submenu ? (
           <div key={menu.key}>
-            <p className="text-xl"> {menu.title}</p>
+            <Link
+              className="text-xl hover:font-medium text-sky-800 hover:text-slate-700 transition-all ease-in-out duration-200"
+              to={menu.path}
+            >
+              {menu.title}
+            </Link>
             <div>
               {menu.submenu.map((item) => (
                 <p key={item.key} className="flex gap-2">
                   {item.icon}
-                  <span>{item.title}</span>
+                  <Link
+                    className="hover:font-medium text-sky-800/90 hover:text-slate-700 transition-all ease-in-out duration-200"
+                    to={item.path}
+                  >
+                    {item.title}
+                  </Link>
                 </p>
               ))}
             </div>
@@ -21,6 +35,6 @@ export const SideNav = () => {
           ""
         )
       )}
-    </div>
+    </nav>
   );
 };
