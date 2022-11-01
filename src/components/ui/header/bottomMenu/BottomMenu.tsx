@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-export function Navigation() {
+export const BottomMenu: React.FC = () => {
   return (
-    <nav className="h-[50px] flex justify-between px-5 bg-gray-500 items-center text-white">
+    <article className="h-[50px] flex justify-between px-5 bg-gray-500 items-center text-white shadow-slate-400/50 shadow-md">
       <span className="font-bold">React Typescript 2022</span>
 
-      <span>
+      <div className="nav-bar">
         <Link to="/" className="mr-2">
           Home
         </Link>
@@ -13,7 +13,7 @@ export function Navigation() {
           Products
         </Link>
         <Link to="about">About</Link>
-      </span>
-    </nav>
+      </div>
+    </article>
   );
-}
+};

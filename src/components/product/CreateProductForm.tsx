@@ -48,8 +48,16 @@ export const CreateProductForm = ({ onCreate }: CreateProductProps) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <StandartInput value={valueTitle} setValue={setValueTitle} />
-      <StandartInput value={valueDescription} setValue={setValueDescription} />
+      <StandartInput
+        value={valueTitle}
+        setValue={setValueTitle}
+        label="Введите название"
+      />
+      <StandartInput
+        value={valueDescription}
+        setValue={setValueDescription}
+        label="Введите описание"
+      />
       {error && <ErrorMessage error={error} />}
       <StandartButton type="submit">Создать</StandartButton>
     </form>

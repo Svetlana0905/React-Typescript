@@ -36,7 +36,18 @@ export const fetchDeleteProduct = (id: number) => {
     }
   };
 };
-export const clearM = (s: string) => {
+export const fetchEditProduct = (id: number, productData: IProduct) => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      dispatch(productsSlice.actions.fetching());
+      const response = await axios.put<IProduct>(`products/${id}`, productData);
+      dispatch(productsSlice.actions.editProduct(response.data));
+    } catch (e) {
+      dispatch(productsSlice.actions.fetchisError(e as Error));
+    }
+  };
+};
+export const clearNotice = (s: string) => {
   return (dispatch: AppDispatch) => {
     dispatch(productsSlice.actions.clearMessage(s));
   };

@@ -1,10 +1,12 @@
 import { useAppDispatch, useAppSelector } from "../../hook";
 import { IProduct } from "../../types/types";
 import { DeleteButton } from "../ui/buttons/buttons";
-import { fetchDeleteProduct, clearM } from "../../stor/actions/productActions";
+import {
+  fetchDeleteProduct,
+  clearNotice,
+} from "../../stor/actions/productActions";
 import { Loading } from "../ui/loading/Loading";
 import { ErrorMessage } from "../error/ErrorMessage";
-// import clearMessage from "../../stor/slices/ProductsSlice";
 
 interface DeleteProductProps {
   props: IProduct;
@@ -15,7 +17,7 @@ export const DeleteProduct: React.FC<DeleteProductProps> = ({ props }) => {
 
   const deleteProduct = async (e: number) => {
     await dispatch(fetchDeleteProduct(e));
-    setTimeout(() => dispatch(clearM("")), 3000);
+    setTimeout(() => dispatch(clearNotice("")), 4000);
   };
 
   return (

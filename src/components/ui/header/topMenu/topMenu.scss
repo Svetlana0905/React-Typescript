@@ -1,0 +1,17 @@
+.feedback-mail,
+.phone,
+.delivery {
+  @apply relative transition-all after:inline-block ease-in duration-300 transition-all
+  after:h-full items-center after:w-full after:absolute after:translate-x-2 after:translate-y-0.5
+  before:absolute before:content-[''] before:w-0 before:hover:w-full before:hover:h-px before:hover:bg-slate-700 
+   before:left-0 before:bottom-0 before:transition-all before:hover:transition-all before:hover:duration-300 before:hover:ease-in before:duration-300 before:ease-in;
+}
+.feedback-mail {
+  @apply relative  after:content-[url('../../../../assets/icons/mail.svg')];
+}
+.phone {
+  @apply relative after:content-[url('../../../../assets/icons/phone.svg')];
+}
+.delivery {
+  @apply relative after:content-[url('../../../../assets/icons/delivery.svg')];
+}

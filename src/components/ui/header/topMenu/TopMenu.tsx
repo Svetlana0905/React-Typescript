@@ -1,0 +1,31 @@
+import "./topMenu.scss";
+import { IHeaderTopMenu } from "../../../../types/types";
+
+interface TopMenuProps {
+  props: IHeaderTopMenu[];
+}
+const a = (str: string): string | undefined => {
+  return str.split("/").pop();
+};
+
+export const TopMenu: React.FC<TopMenuProps> = ({ props }) => {
+  return (
+    <div
+      className="z-40 flex flex-row justify-between h-[50px] flex justify-between px-5 bg-gray-400 
+    items-center text-gray-900 "
+    >
+      <p className="flex flex-row gap-12">
+        {props?.length &&
+          props.map((item) => (
+            <a
+              key={item.key}
+              className={item.styleLink}
+              href={a(item.path) ? a(item.path) : "#"}
+            >
+              {item.title}
+            </a>
+          ))}
+      </p>
+    </div>
+  );
+};

@@ -36,14 +36,27 @@ export const productsSlice = createSlice({
     addProduct(state, action: PayloadAction<IProduct>) {
       state.loading = false;
       state.error = "";
+      // имитация работы сервера
       state.products.push(action.payload);
       state.message = "";
+    },
+    editProduct(state, action: PayloadAction<IProduct>) {
+      state.loading = false;
+      state.error = "";
+      // имитация работы сервера
+      state.products = state.products.map((item) =>
+        item.id === action.payload.id ? (item = action.payload) : item
+      );
+      state.message = `${action.payload.title} - Был изменен`;
     },
     deleteProduct(state, action: PayloadAction<IProduct>) {
       state.loading = false;
       state.error = "";
-      state.products.splice(action.payload.id - 1, 1);
-      state.message = `${action.payload.title} был удален`;
+      // имитация работы сервера
+      state.products = state.products.filter(
+        (item) => item.id !== action.payload.id
+      );
+      state.message = `${action.payload.title} - Был удален`;
     },
     clearMessage(state, action: PayloadAction<string>) {
       state.message = action.payload;

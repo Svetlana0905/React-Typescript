@@ -13,7 +13,7 @@ export const SideNav: React.FC<ProductProps> = ({ props }) => {
           <div key={menu.key}>
             <Link
               className="text-xl hover:font-medium text-sky-800 hover:text-slate-700 transition-all ease-in-out duration-200"
-              to={menu.path}
+              to={menu?.path ? menu.path : ""}
             >
               {menu.title}
             </Link>

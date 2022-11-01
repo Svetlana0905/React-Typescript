@@ -1,4 +1,4 @@
-import "./product.css";
+import "./product.scss";
 import { useState } from "react";
 import { IProduct } from "../../types/types";
 import { ProductButton, DeleteButton } from "../ui/buttons/buttons";
@@ -31,6 +31,9 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
       <p className="font-bold">
         <span className="text-sky-900/70 font-normal">Цена:</span> {props.price}
       </p>
+      <p className="font-bold">
+        <span className="text-sky-900/70 font-normal">Id:</span> {props.id}
+      </p>
       {isOpenModalEdit || isOpenModalDelite ? (
         <Modal
           title={isOpenModalEdit ? "Редактировать товар" : "Удаление товара"}
@@ -62,7 +65,6 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
           />
         </div>
       </div>
-
       {details && <p>{props.description}</p>}
     </article>
   );

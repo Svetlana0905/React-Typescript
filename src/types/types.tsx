@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export interface IAddress {
   street: string;
   city: string;
@@ -41,4 +43,11 @@ export type INavLinks<T> = {
   icon: any;
   breadcrumb: boolean;
   submenu?: T[];
+};
+
+export type IHeaderTopMenu = {
+  key: string;
+  path: string;
+  title: string;
+  styleLink: string;
 };

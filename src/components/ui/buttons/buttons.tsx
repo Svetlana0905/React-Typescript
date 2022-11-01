@@ -3,11 +3,25 @@ import { FC } from "react";
 
 interface ButtonProps {
   handleClick?: () => void;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   type: any;
   triggerStyle?: boolean;
   disabled?: boolean;
+  buttonStyle?: string;
 }
+
+export const NavBarButton: FC<ButtonProps> = ({
+  children,
+  handleClick,
+  buttonStyle,
+  type,
+}) => {
+  return (
+    <button onClick={handleClick} className={buttonStyle} type={type}>
+      {children && children}
+    </button>
+  );
+};
 
 export const StandartButton: FC<ButtonProps> = ({
   type,
@@ -57,11 +71,11 @@ export const ProductButton: FC<ButtonProps> = ({
     </button>
   );
 };
+
 export const DeleteButton: FC<ButtonProps> = ({
   children,
   handleClick,
   triggerStyle,
-  disabled,
   type,
 }) => {
   return (
@@ -73,7 +87,6 @@ export const DeleteButton: FC<ButtonProps> = ({
           : "product-button product-button__delete"
       }
       type={type}
-      disabled={disabled}
     >
       {children}
     </button>

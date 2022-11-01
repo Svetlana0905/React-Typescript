@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hook";
 import { fetchProducts } from "../../stor/actions/productActions";
-import { CreateProductForm } from "../../components/cteateNewProduct/CreateProductForm";
+import { CreateProductForm } from "../../components/product/CreateProductForm";
 import { ErrorMessage } from "../../components/error/ErrorMessage";
 import { Loading } from "../../components/ui/loading/Loading";
 import { Modal } from "../../components/ui/modal/Modal";
@@ -36,7 +36,7 @@ export const ProductPage: React.FC = () => {
         </Modal>
       )}
       <RoundButton
-        children={"+"}
+        children="+"
         type="button"
         handleClick={() => setOpenModal(true)}
       />

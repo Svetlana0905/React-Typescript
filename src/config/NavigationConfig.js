@@ -5,7 +5,7 @@ const homeNavTree = [
   {
     key: "home",
     path: `${PREFIX_PATH}`,
-    title: "Ссылки 1",
+    title: "Главные",
     icon: "",
     breadcrumb: false,
     submenu: [
@@ -31,14 +31,14 @@ const homeNavTree = [
 const productNavTree = [
   {
     key: "product",
-    path: `${PREFIX_PATH}/product`,
+    path: ``,
     title: "Товары",
     icon: null,
     breadcrumb: true,
     submenu: [
       {
         key: "product-any-page1",
-        path: `${PREFIX_PATH}/product/any-page1`,
+        path: `${PREFIX_PATH}/product`,
         title: "Все товары",
         icon: <Icon type="Tags" />,
         breadcrumb: false,
