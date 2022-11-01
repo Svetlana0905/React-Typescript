@@ -1,3 +1,3 @@
-export const useSplitString = (str: string): string | undefined => {
+export const splitString = (str: string): string | undefined => {
   return str.split("/").pop();
 };

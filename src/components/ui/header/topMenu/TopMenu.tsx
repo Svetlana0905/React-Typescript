@@ -1,12 +1,10 @@
 import "./topMenu.scss";
 import { IHeaderTopMenu } from "../../../../types/types";
+import { splitString } from "../../../../hook/splitString";
 
 interface TopMenuProps {
   props: IHeaderTopMenu[];
 }
-const a = (str: string): string | undefined => {
-  return str.split("/").pop();
-};
 
 export const TopMenu: React.FC<TopMenuProps> = ({ props }) => {
   return (
@@ -20,7 +18,7 @@ export const TopMenu: React.FC<TopMenuProps> = ({ props }) => {
             <a
               key={item.key}
               className={item.styleLink}
-              href={a(item.path) ? a(item.path) : "#"}
+              href={splitString(item.path) ? splitString(item.path) : "#"}
             >
               {item.title}
             </a>
