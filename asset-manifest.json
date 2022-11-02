@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.css": "/React-Typescript/static/css/main.48478521.css",
+    "main.css": "/React-Typescript/static/css/main.96311f70.css",
     "main.js": "/React-Typescript/static/js/main.4692d427.js",
+    "static/media/delivery.svg": "/React-Typescript/static/media/delivery.653bb8f0f98f71611031.svg",
     "static/media/question.svg": "/React-Typescript/static/media/question.91a7df43116efe9f48c0e48ac6b68d55.svg",
     "static/media/about-us.svg": "/React-Typescript/static/media/about-us.ecd9cb3839f4deac2802117327a405a1.svg",
     "static/media/tags.svg": "/React-Typescript/static/media/tags.22321f7feb8e6e46c1cf3238b0128aad.svg",
+    "static/media/phone.svg": "/React-Typescript/static/media/phone.5dd648ad2d3e1f0484e3.svg",
     "static/media/tag.svg": "/React-Typescript/static/media/tag.160b0fa0fb6f9034979b528e84eb5843.svg",
+    "static/media/mail.svg": "/React-Typescript/static/media/mail.4684ae243499d004d8dd.svg",
     "static/media/home.svg": "/React-Typescript/static/media/home.ed405368a8a3b6aed3c838539790812f.svg",
     "index.html": "/React-Typescript/index.html",
-    "main.48478521.css.map": "/React-Typescript/static/css/main.48478521.css.map",
+    "main.96311f70.css.map": "/React-Typescript/static/css/main.96311f70.css.map",
     "main.4692d427.js.map": "/React-Typescript/static/js/main.4692d427.js.map"
   },
   "entrypoints": [
-    "static/css/main.48478521.css",
+    "static/css/main.96311f70.css",
     "static/js/main.4692d427.js"
   ]
 }
