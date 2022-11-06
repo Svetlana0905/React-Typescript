@@ -1,5 +1,5 @@
 import "./buttons.scss";
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 
 interface ButtonProps {
   handleClick?: () => void;
@@ -8,6 +8,7 @@ interface ButtonProps {
   triggerStyle?: boolean;
   disabled?: boolean;
   buttonStyle?: string;
+  ariaLabel?: string;
 }
 
 export const NavBarButton: FC<ButtonProps> = ({
@@ -56,6 +57,7 @@ export const ProductButton: FC<ButtonProps> = ({
   handleClick,
   triggerStyle,
   type,
+  ariaLabel,
 }) => {
   return (
     <button
@@ -66,6 +68,7 @@ export const ProductButton: FC<ButtonProps> = ({
           : "product-button "
       }
       type={type}
+      aria-label={ariaLabel}
     >
       {children}
     </button>
@@ -77,6 +80,7 @@ export const DeleteButton: FC<ButtonProps> = ({
   handleClick,
   triggerStyle,
   type,
+  ariaLabel,
 }) => {
   return (
     <button
@@ -87,8 +91,33 @@ export const DeleteButton: FC<ButtonProps> = ({
           : "product-button product-button__delete"
       }
       type={type}
+      aria-label={ariaLabel}
     >
       {children}
+    </button>
+  );
+};
+export const LikedProductButton: FC<ButtonProps> = ({
+  children,
+  handleClick,
+  triggerStyle,
+  type,
+  ariaLabel,
+}) => {
+  return (
+    <button
+      onClick={handleClick}
+      type={type}
+      disabled={triggerStyle}
+      aria-label={ariaLabel}
+      className={
+        triggerStyle ? "liked-button" : "liked-button liked-button__disabled"
+      }
+    >
+      {children}
+      <span className="absolute lef-0  top-0 h-6 opacity-0 hover:opacity-70 bg-white hover:w-52 hover:h-6">
+        {triggerStyle ? "Уже добавлен" : "Добавить в избранные"}
+      </span>
     </button>
   );
 };

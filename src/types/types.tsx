@@ -1,5 +1,3 @@
-import { type } from "os";
-
 export interface IAddress {
   street: string;
   city: string;
@@ -27,6 +25,17 @@ export interface IProduct {
   image: string;
   rating: IRating;
 }
+export interface IProductLiked {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: IRating;
+  status: boolean;
+}
+
 export interface ISub {
   key: string;
   path: string;
@@ -50,4 +59,13 @@ export type IHeaderTopMenu = {
   path: string;
   title: string;
   styleLink: string;
+};
+export type IHeaderBottomMenu = {
+  key: string;
+  path: string;
+  title?: string;
+  styleLink: string;
+  visibilityTitle: string;
+  icon?: any;
+  visibleBadje?: string;
 };

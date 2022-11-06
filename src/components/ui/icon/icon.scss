@@ -4,3 +4,8 @@
     @apply absolute h-5 w-5;
   }
 }
+.active svg {
+  fill: red;
+  width: 25px;
+  height: 25px;
+}

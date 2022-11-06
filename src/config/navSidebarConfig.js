@@ -13,7 +13,7 @@ const homeNavTree = [
         key: "home-about",
         path: `${PREFIX_PATH}/about`,
         title: "О нас",
-        icon: <Icon type="AboutUs" />,
+        icon: <Icon type="AboutUs" className="icon-wrapper black" />,
         breadcrumb: false,
         submenu: [],
       },
@@ -21,7 +21,7 @@ const homeNavTree = [
         key: "home-any-page",
         path: `${PREFIX_PATH}/any-page`,
         title: "Вопрос-Ответ",
-        icon: <Icon type="Question" />,
+        icon: <Icon type="Question" className="icon-wrapper black" />,
         breadcrumb: false,
         submenu: [],
       },
@@ -40,21 +40,21 @@ const productNavTree = [
         key: "product-any-page1",
         path: `${PREFIX_PATH}/product`,
         title: "Все товары",
-        icon: <Icon type="Tags" />,
+        icon: <Icon type="Tags" className="icon-wrapper black" />,
         breadcrumb: false,
         submenu: [],
       },
       {
-        key: "product-any-page2",
-        path: `${PREFIX_PATH}/product/any-page2`,
-        title: "Страница товара",
-        icon: <Icon type="Tag" />,
+        key: "product-liked-product",
+        path: `${PREFIX_PATH}/product/liked-product`,
+        title: "Избранные товары",
+        icon: <Icon type="Tag" className="icon-wrapper black" />,
         breadcrumb: false,
         submenu: [],
       },
     ],
   },
 ];
-const navigationConfig = [...homeNavTree, ...productNavTree];
+const navSidebarConfig = [...homeNavTree, ...productNavTree];
 
-export default navigationConfig;
+export default navSidebarConfig;

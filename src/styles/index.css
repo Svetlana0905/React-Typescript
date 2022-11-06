@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.black {
+  fill: black;
+}
+.white {
+  fill: white;
+}
+.gray {
+  fill: gray;
+}
+.red {
+  fill: red;
+}

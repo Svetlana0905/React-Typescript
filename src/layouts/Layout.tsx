@@ -1,20 +1,16 @@
 import { Outlet } from "react-router-dom";
 import { SideNav } from "../components/navigation/SideNav";
-import { BottomMenu } from "../components/ui/header/bottomMenu/BottomMenu";
-import { TopMenu } from "../components/ui/header/topMenu/TopMenu";
-import navigationConfig from "../config/NavigationConfig";
-import { headerTopNavTree } from "../config/headerTopMenuConfig";
+import { Header } from "../components/ui/header/Header";
+import navSidebarConfig from "../config/navSidebarConfig";
 import { useAppSelector } from "../hook";
 
 export const Layout: React.FC = () => {
   const { message } = useAppSelector((state) => state.product);
   return (
     <>
-      <TopMenu props={headerTopNavTree} />
-      <BottomMenu />
-
+      <Header />
       <div className="flex flex-row justify-between w-full h-full min-h-screen">
-        <SideNav props={navigationConfig} />
+        <SideNav props={navSidebarConfig} />
         <main className="w-full">
           <div
             className={
