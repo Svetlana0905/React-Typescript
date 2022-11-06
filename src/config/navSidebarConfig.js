@@ -31,7 +31,7 @@ const homeNavTree = [
 const productNavTree = [
   {
     key: "product",
-    path: ``,
+    path: `${PREFIX_PATH}/product`,
     title: "Товары",
     icon: null,
     breadcrumb: true,
