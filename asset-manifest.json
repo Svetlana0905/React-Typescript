@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/React-Typescript/static/css/main.36c529b2.css",
-    "main.js": "/React-Typescript/static/js/main.fda2479c.js",
+    "main.css": "/React-Typescript/static/css/main.d9696025.css",
+    "main.js": "/React-Typescript/static/js/main.879816a3.js",
     "static/media/delivery.svg": "/React-Typescript/static/media/delivery.653bb8f0f98f71611031.svg",
+    "static/media/logo.svg": "/React-Typescript/static/media/logo.e63717a0d738b1f12a141bec0b8b5f36.svg",
     "static/media/question.svg": "/React-Typescript/static/media/question.91a7df43116efe9f48c0e48ac6b68d55.svg",
     "static/media/about-us.svg": "/React-Typescript/static/media/about-us.ecd9cb3839f4deac2802117327a405a1.svg",
     "static/media/heart.svg": "/React-Typescript/static/media/heart.a2b7c0285f1e1d64d289c7cc58c2b769.svg",
@@ -14,11 +15,11 @@
     "static/media/basket.svg": "/React-Typescript/static/media/basket.cffd7ed50177b2ee57b76806ad15c8c9.svg",
     "static/media/home.svg": "/React-Typescript/static/media/home.ed405368a8a3b6aed3c838539790812f.svg",
     "index.html": "/React-Typescript/index.html",
-    "main.36c529b2.css.map": "/React-Typescript/static/css/main.36c529b2.css.map",
-    "main.fda2479c.js.map": "/React-Typescript/static/js/main.fda2479c.js.map"
+    "main.d9696025.css.map": "/React-Typescript/static/css/main.d9696025.css.map",
+    "main.879816a3.js.map": "/React-Typescript/static/js/main.879816a3.js.map"
   },
   "entrypoints": [
-    "static/css/main.36c529b2.css",
-    "static/js/main.fda2479c.js"
+    "static/css/main.d9696025.css",
+    "static/js/main.879816a3.js"
   ]
 }
