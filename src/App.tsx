@@ -7,7 +7,7 @@ import { HomePage } from "./views/homePage/HomePage";
 import { DeliveryPage } from "./views/deliveryPage/DeliveryPege";
 import { AuthPage } from "./views/authPage/AuthPage";
 import { Layout } from "./layouts/Layout";
-import { BasketPage } from "./views/basketPage/BasketPage";
+import { CartPage } from "./views/cartPage/CartPage";
 import { LikedProductPage } from "./views/likedProductPage/LikedProductPage";
 
 const App: React.FC = (): JSX.Element => {
@@ -21,7 +21,7 @@ const App: React.FC = (): JSX.Element => {
           <Route path="product/liked-product" element={<LikedProductPage />} />
           <Route path="delivery" element={<DeliveryPage />} />
           <Route path="login-page" element={<AuthPage />} />
-          <Route path="basket" element={<BasketPage />} />
+          <Route path="product/basket" element={<CartPage />} />
         </Route>
       </Routes>
     </>

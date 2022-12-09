@@ -1,30 +1,42 @@
+import { motion } from "framer-motion";
+
 import "./product.scss";
-import { useState, useEffect } from "react";
-import { IProduct } from "../../types/types";
+import { useState, useEffect, useRef } from "react";
+import { IProduct, IProductLiked } from "../../types/types";
 import {
   ProductButton,
-  DeleteButton,
   LikedProductButton,
+  AddToCartButton,
 } from "../ui/buttons/buttons";
 import { TextUnderline } from "../ui/text/Text";
-import { Modal } from "../../components/ui/modal/Modal";
-import { EditProduct } from "./EditProduct";
-import { DeleteProduct } from "./DeleteProduct";
 import { useAppDispatch, useAppSelector } from "../../hook";
 import { addLikedProduct } from "../../stor/actions/likedProductActions";
+import { addProduct } from "../../stor/actions/cartActions";
 import { Icon } from "../ui/icon/icon";
 
 interface ProductProps {
   props: IProduct;
 }
 
+const blockAnimation = {
+  hidden: {
+    x: 100,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: { delay: 0.2 },
+  },
+};
+
 export const Product: React.FC<ProductProps> = ({ props }) => {
   let likeArr = useAppSelector((state) => state.likedProduct.products);
   const dispath = useAppDispatch();
   const [details, setDetails] = useState(false);
-  const [isOpenModalEdit, setOpenModalEdit] = useState(false);
-  const [isOpenModalDelite, setOpenModalDelite] = useState(false);
   const [statusBut, setStatus] = useState(false);
+  const [count, setCount] = useState(1);
+  const inputRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (likeArr.length) {
@@ -35,18 +47,24 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
     }
   }, [likeArr, props.id]);
 
-  function toggleLikedProduct(e: IProduct) {
+  function addLikeProduct(e: IProduct) {
     setStatus(true);
     dispath(addLikedProduct({ ...e, status: !statusBut }));
   }
-
-  const closeModal = (e: boolean) => {
-    if (isOpenModalEdit) setOpenModalEdit(e);
-    if (isOpenModalDelite) setOpenModalDelite(e);
-  };
+  function addToCart(e: IProductLiked) {
+    setCount(count + 1);
+    dispath(addProduct({ ...e, count: count }));
+  }
 
   return (
-    <article className="product-block">
+    <motion.article
+      className="product-block"
+      ref={inputRef}
+      initial="hidden"
+      whileInView="visible"
+      // viewport={{ amount: 0.2 }}
+      variants={blockAnimation}
+    >
       <TextUnderline children={props.title} />
       <img src={props.image} alt={props.title} className="product-image" />
       <p>
@@ -55,30 +73,17 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
       <p className="font-bold">
         <span className="text-sky-900/70 font-normal">Цена:</span> {props.price}
       </p>
-      <p className="font-bold">
-        <span className="text-sky-900/70 font-normal">Id:</span> {props.id}
-      </p>
-      {isOpenModalEdit || isOpenModalDelite ? (
-        <Modal
-          title={isOpenModalEdit ? "Редактировать товар" : "Удаление товара"}
-          onClose={() => closeModal(false)}
-        >
-          {isOpenModalEdit && <EditProduct props={props} />}
-          {isOpenModalDelite && <DeleteProduct props={props} />}
-        </Modal>
-      ) : null}
       <div className="flex justify-between w-full">
-        <div className="flex flex-col gap-5 relative">
+        <div className="flex flex-col gap-5 self-end">
           <LikedProductButton
             type="button"
-            handleClick={() => toggleLikedProduct(props)}
+            handleClick={() => addLikeProduct(props)}
             triggerStyle={statusBut}
             ariaLabel="Добавить в избранное"
             children={
               <Icon type="Heart" className={statusBut ? "active" : ""} />
             }
           />
-
           <ProductButton
             handleClick={() => setDetails((prev) => !prev)}
             triggerStyle={details}
@@ -86,24 +91,16 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
             children={details ? "Скрыть описание" : "Показать описание"}
           />
         </div>
-        <div className="flex gap-7 self-end">
-          <ProductButton
-            triggerStyle={isOpenModalEdit}
-            children="Редактировать"
-            type="button"
-            handleClick={() => setOpenModalEdit((prev) => !prev)}
-            ariaLabel="Редактировать продукт"
-          />
-          <DeleteButton
-            triggerStyle={isOpenModalDelite}
-            children="Удалить"
-            type="button"
-            handleClick={() => setOpenModalDelite((prev) => !prev)}
-            ariaLabel="Удалить продукт"
-          />
-        </div>
+        <AddToCartButton
+          type="button"
+          handleClick={() => addToCart(props)}
+          children="В корзину"
+          ariaLabel="Добавить в корзину"
+        />
       </div>
       {details && <p>{props.description}</p>}
-    </article>
+    </motion.article>
   );
 };
+
+export const MProduct = motion(Product);

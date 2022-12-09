@@ -33,7 +33,7 @@ export const headerBottomNavTree = [
   },
   {
     key: "liked-goods",
-    path: `${PREFIX_PATH}/liked-goods`,
+    path: `${PREFIX_PATH}/product/liked-product`,
     title: "Избранные товары",
     styleLink: "liked-goods",
     visibilityTitle: "isHidden",

@@ -33,7 +33,8 @@ export interface IProductLiked {
   category: string;
   image: string;
   rating: IRating;
-  status: boolean;
+  status?: boolean;
+  count?: number;
 }
 
 export interface ISub {

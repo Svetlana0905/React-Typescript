@@ -5,7 +5,7 @@ const homeNavTree = [
   {
     key: "home",
     path: `${PREFIX_PATH}`,
-    title: "Главные",
+    title: "Главная",
     icon: "",
     breadcrumb: false,
     submenu: [
@@ -49,6 +49,14 @@ const productNavTree = [
         path: `${PREFIX_PATH}/product/liked-product`,
         title: "Избранные товары",
         icon: <Icon type="Tag" className="icon-wrapper black" />,
+        breadcrumb: false,
+        submenu: [],
+      },
+      {
+        key: "product-cart",
+        path: `${PREFIX_PATH}/product/basket`,
+        title: "Корзина",
+        icon: <Icon type="Basket" className="icon-wrapper black" />,
         breadcrumb: false,
         submenu: [],
       },

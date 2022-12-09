@@ -6,12 +6,16 @@ import { useState, useEffect } from "react";
 
 export const BottomMenu: React.FC = () => {
   const { products } = useAppSelector((state) => state.likedProduct);
+  const { products: cartProducts } = useAppSelector((state) => state.cart);
   const [countLiked, setNum] = useState(0);
-  const [countCard, setCard] = useState(0);
+  const [countCard, setCart] = useState(0);
 
   useEffect(() => {
     setNum(products.length);
   }, [products]);
+  useEffect(() => {
+    setCart(cartProducts.length);
+  }, [cartProducts]);
 
   return (
     <article className="h-[50px] flex justify-between px-5 bg-gray-500 items-center text-white shadow-slate-400/50 shadow-md">

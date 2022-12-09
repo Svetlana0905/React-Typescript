@@ -1,5 +1,5 @@
 import "./buttons.scss";
-import { FC, useState, useEffect } from "react";
+import { FC } from "react";
 
 interface ButtonProps {
   handleClick?: () => void;
@@ -115,9 +115,28 @@ export const LikedProductButton: FC<ButtonProps> = ({
       }
     >
       {children}
-      <span className="absolute lef-0  top-0 h-6 opacity-0 hover:opacity-70 bg-white hover:w-52 hover:h-6">
-        {triggerStyle ? "Уже добавлен" : "Добавить в избранные"}
+      <span className="absolute lef-0 top-0 opacity-50 bg-white w-48 h-6 text-start pl-4 pt-2 text-xs">
+        {triggerStyle ? "Добавлен" : "Добавить в избранные"}
       </span>
+    </button>
+  );
+};
+export const AddToCartButton: FC<ButtonProps> = ({
+  children,
+  handleClick,
+  // triggerStyle,
+  type,
+  ariaLabel,
+}) => {
+  return (
+    <button
+      onClick={handleClick}
+      type={type}
+      // disabled={triggerStyle}
+      aria-label={ariaLabel}
+      className="add-cart-button"
+    >
+      {children}
     </button>
   );
 };
