@@ -62,7 +62,7 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
       ref={inputRef}
       initial="hidden"
       whileInView="visible"
-      // viewport={{ amount: 0.2 }}
+      viewport={{ amount: 0.2 }}
       variants={blockAnimation}
     >
       <TextUnderline children={props.title} />

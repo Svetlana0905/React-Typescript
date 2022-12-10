@@ -70,3 +70,9 @@ export type IHeaderBottomMenu = {
   icon?: any;
   visibleBadje?: string;
 };
+
+export interface ISliderData {
+  imgpath: string;
+  title: string;
+  subtitle: string;
+}

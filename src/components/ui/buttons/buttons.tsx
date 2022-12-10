@@ -1,10 +1,11 @@
 import "./buttons.scss";
-import { FC } from "react";
+import { FC, forwardRef } from "react";
+import { motion } from "framer-motion";
 
 interface ButtonProps {
   handleClick?: () => void;
   children?: React.ReactNode;
-  type: any;
+  type: "button" | "reset" | "submit";
   triggerStyle?: boolean;
   disabled?: boolean;
   buttonStyle?: string;
@@ -24,21 +25,21 @@ export const NavBarButton: FC<ButtonProps> = ({
   );
 };
 
-export const StandartButton: FC<ButtonProps> = ({
-  type,
-  handleClick,
-  children,
-}) => {
-  return (
-    <button
-      type={type}
-      className="py-2 px-4 border bg-yellow-400 hover:text-white rounded-lg"
-      onClick={handleClick}
-    >
-      {children}
-    </button>
-  );
-};
+export const StandartButton = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ type, handleClick, children }, ref) => {
+    return (
+      <button
+        ref={ref}
+        type={type}
+        className="py-2 px-4 border bg-yellow-400 hover:text-white rounded-lg"
+        onClick={handleClick}
+      >
+        {children}
+      </button>
+    );
+  }
+);
+export const MStandartButton = motion(StandartButton);
 
 export const RoundButton: FC<ButtonProps> = ({
   type,
