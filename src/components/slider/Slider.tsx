@@ -19,17 +19,64 @@ export const Slider = () => {
       ? setSlideIndex(slideIndex - 1)
       : setSlideIndex(dataLenght - 1);
   };
+  const imageAnimation = {
+    hidden: {
+      opacity: 0,
+      scale: 0.5,
+      borderTopLeftRadius: 500,
+      borderBottomRightRadius: 500,
+      transition: {
+        duration: 1.5,
+      },
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      borderTopLeftRadius: 0,
+      borderBottomRightRadius: 0,
+      transition: {
+        duration: 1.5,
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.5,
+      borderTopLeftRadius: 500,
+      borderBottomRightRadius: 500,
+      transition: {
+        duration: 1,
+        type: "spring",
+      },
+    },
+  };
 
   return (
     <div className="slider">
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         <motion.img
           key={slideIndex}
           src={sliderData[slideIndex].imgpath}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          // initial={{
+          //   opacity: 0,
+          //   scale: 0.5,
+          //   borderRadius: 250,
+          // }}
+          // animate={{
+          //   opacity: 1,
+          //   scale: 1,
+          //   borderRadius: 0,
+          // }}
+          // exit={{
+          //   opacity: 0,
+          //   scale: 0.5,
+          //   borderRadius: 250,
+          // }}
+          // transition={{
+          //   duration: 0.5,
+          // }}
+          variants={imageAnimation}
+          initial="hidden"
+          animate="visible"
           className="slider__slider-image"
         />
       </AnimatePresence>

@@ -1,0 +1,28 @@
+@use "../../styles/mixin.scss" as mixin;
+@use "../../styles/shared.scss" as color;
+
+.nav {
+   display: none;
+   flex-direction: column;
+   gap: 1.25rem;
+   width: 240px;
+   padding-top: 1rem;
+   padding-left: 1rem;
+   background-color: color.$gray200;
+   min-height: 100%;
+   @include mixin.tablet {
+        display: flex;
+   }
+   &__link {
+      color: color.$sky800;
+      transition: all 0.5s ease-in-out;
+      &:hover {
+         color: color.$slate700;
+         font-weight: 600;
+      }
+   }
+   &__sublinkBlock {
+      display: flex;
+      gap: 0.5rem;
+   }
+}

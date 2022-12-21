@@ -1,0 +1,142 @@
+@use "../../../styles/shared.scss" as color;
+
+.roundButton {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  border-radius: 50%;
+  background-color: color.$gray400;
+  color: color.$white;
+  width: 3rem;
+  height: 3rem;
+  font-size: 28px;
+  line-height: 1.75rem;
+  box-shadow: color.$box-shadow-slate-500-50;
+
+  &:hover {
+    box-shadow: color.$box-shadow-slate-900-50;
+  }
+}
+
+.likedButton {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  height: 1.5rem;
+
+  &__text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    background: color.$white;
+    width: 12rem;
+    height: 1.5rem;
+    text-align: start;
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+.productButton {
+  position: relative;
+  max-width: 200px;
+  max-height: 40px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: color.$slate300;
+  box-shadow: color.$box-shadow-slate-300-50;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    color: color.$white;
+    background-color: color.$gray500;
+    box-shadow: color.$box-shadow-slate-400-50;
+  }
+
+  &__active {
+    background-color: color.$gray200;
+  }
+
+  &__delete {
+    background-color: color.$red600;
+
+    &:hover {
+      color: color.$white;
+      background-color: color.$red800;
+    }
+  }
+
+  &__delete-active {
+    color: color.$white;
+    background-color: color.$red900;
+  }
+}
+
+.addCartButton {
+  max-width: 200px;
+  align-self: flex-end;
+  max-height: 40px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-width: 1px;
+  border-radius: 0.5rem;
+  background-color: color.$blue300;
+  box-shadow: color.$box-shadow-slate-300-50;
+  border-style: none;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    color: color.$white;
+    background-color: color.$blue500;
+    box-shadow: color.$box-shadow-blue400-50;
+  }
+}
+
+.burger {
+  position: relative;
+  width: 36px;
+  height: 26px;
+  margin-bottom: 15px;
+  background: transparent;
+  border: none;
+  z-index: 3;
+  cursor: pointer;
+}
+
+// .burger img {
+//   position: absolute;
+//   width: 100%;
+//   height: 2px;
+//   transition: all ease-in-out 0.3s;
+// }
+
+// .burger img:nth-child(1) {
+//   top: 0px;
+// }
+
+// .burger img:nth-child(3) {
+//   bottom: 0px;
+// }
+
+// .burger img:nth-child(2) {
+//   top: 12px;
+// }
+
+// .burger_open img:nth-child(2) {
+//   display: none;
+// }
+
+// .burger_open img:nth-child(1) {
+//   top: 50%;
+//   transform: rotate(45deg);
+// }
+
+// .burger_open img:nth-child(3) {
+//   top: 50%;
+//   transform: rotate(-45deg);
+// }

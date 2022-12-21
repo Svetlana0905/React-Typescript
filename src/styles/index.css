@@ -1,24 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "./typography.scss";
 
 body {
   @apply min-h-screen;
 }
 #root {
-  @apply min-h-full;
-}
-
-.black {
-  fill: black;
-}
-.white {
-  fill: white;
-}
-.gray {
-  fill: gray;
-}
-.red {
-  fill: red;
+  @apply min-h-screen;
 }

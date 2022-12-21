@@ -76,3 +76,8 @@ export interface ISliderData {
   title: string;
   subtitle: string;
 }
+export interface IImage {
+  title: string;
+  path: string;
+  class: string;
+}

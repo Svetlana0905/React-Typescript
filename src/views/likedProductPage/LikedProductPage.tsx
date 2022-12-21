@@ -3,6 +3,7 @@ import { IProduct } from "../../types/types";
 import { DeleteButton } from "../../components/ui/buttons/buttons";
 import { removeLikedProduct } from "../../stor/actions/likedProductActions";
 import { TextUnderline } from "../../components/ui/text/Text";
+import { ImageProduct } from "../../components/ui/images/Images";
 
 interface ProductProps {
   props?: IProduct[];
@@ -20,7 +21,12 @@ export const LikedProductPage: React.FC<ProductProps> = () => {
               <span className="text-sky-900/70 font-normal">Id:</span> {item.id}
             </p>
             <TextUnderline children={item.title} />
-            <img src={item.image} alt={item.title} className="product-image" />
+            {/* <img src={item.image} alt={item.title} className="product-image" /> */}
+            <ImageProduct
+              title={item.title}
+              path={item.image}
+              class={"product-image"}
+            />
             <p>{item.description}</p>
             <DeleteButton
               type="button"

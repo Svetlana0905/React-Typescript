@@ -1,10 +1,10 @@
+import styles from "./Discount.module.scss";
 export const DiscountBlock = () => {
   return (
-    <section className="flex flex-row w-full">
-      <div className="basis-1/3 bg-gray-400 h-full text-2xl text-white text-center">
-        <span className="text-9xl font-bold">-30%</span>
-        <br />
-        <span>на аксессуары</span>
+    <section className={styles.discountWrapper}>
+      <div className={styles.discountContext}>
+        <p className={styles.value}>-30%</p>
+        <p>на аксессуары</p>
       </div>
       <div className="flex flex-row basis-2/3 justify-between p-14">
         <p>1</p>

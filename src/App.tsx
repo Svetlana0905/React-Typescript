@@ -1,14 +1,16 @@
-import "./styles/App.css";
+import "./styles/app.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { AboutPage } from "./views/aboutPage/AboutPage";
-import { ProductPage } from "./views/productPage/ProductPage";
-import { HomePage } from "./views/homePage/HomePage";
-import { DeliveryPage } from "./views/deliveryPage/DeliveryPege";
-import { AuthPage } from "./views/authPage/AuthPage";
-import { Layout } from "./layouts/Layout";
-import { CartPage } from "./views/cartPage/CartPage";
-import { LikedProductPage } from "./views/likedProductPage/LikedProductPage";
+import {
+  AboutPage,
+  CartPage,
+  HomePage,
+  LikedProductPage,
+  ProductPage,
+  AuthPage,
+  DeliveryPage,
+  Layout,
+} from "./views";
 
 const App: React.FC = (): JSX.Element => {
   return (

@@ -1,8 +1,9 @@
+import styles from "./BottomMenu.module.scss";
 import { useAppSelector } from "../../../../hook";
-import "./bottomMenu.scss";
 import { Link } from "react-router-dom";
 import { headerBottomNavTree } from "../../../../config/headerMenuConfig";
 import { useState, useEffect } from "react";
+import { BurgerBtn } from "../../buttons/buttons";
 
 export const BottomMenu: React.FC = () => {
   const { products } = useAppSelector((state) => state.likedProduct);
@@ -13,26 +14,34 @@ export const BottomMenu: React.FC = () => {
   useEffect(() => {
     setNum(products.length);
   }, [products]);
+
   useEffect(() => {
     setCart(cartProducts.length);
   }, [cartProducts]);
 
   return (
-    <article className="h-[50px] flex justify-between px-5 bg-gray-500 items-center text-white shadow-slate-400/50 shadow-md">
-      <span className="font-bold">React Typescript 2022</span>
-      <div className="flex flex-row gap-7">
+    <article className={styles.bottomMenu}>
+      <span className={styles.bottomMenu__title}>React Typescript 2022</span>
+      <BurgerBtn type="button" />
+      <nav className={styles.bottomMenu__nav}>
         {headerBottomNavTree.map((item) => (
-          <Link to={item.path} className={item.styleLink} key={item.key}>
-            <span className={item.visibilityTitle}>{item.title}</span>
+          <Link
+            to={item.path}
+            className={styles[`${item.styleLink}`]}
+            key={item.key}
+          >
+            <span className={styles[`${item.visibilityTitle}`]}>
+              {item.title}
+            </span>
             {item.icon}
             {item.visibleBadje && (
-              <span className="badje">
+              <span className={styles.badje}>
                 {item.key === "basket" ? countCard : countLiked}
               </span>
             )}
           </Link>
         ))}
-      </div>
+      </nav>
     </article>
   );
 };

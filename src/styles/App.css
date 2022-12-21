@@ -1,17 +1,39 @@
 @import "./typography.scss";
+@import "./shared.scss";
 
-.App {
-  text-align: center;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 h1 {
   font-size: var(--typography-h1);
+}
+h2 {
+  font-size: var(--typography-h2);
+}
+h3 {
+  font-size: var(--typography-h3);
+}
+h4 {
+  font-size: var(--typography-h4);
+}
+.subtitle1 {
+  font-size: var(--typography-subtitle1);
+}
+.subtitle2 {
+  font-size: var(--typography-subtitle2);
+}
+.body1 {
+  font-size: var(--typography-body1);
+}
+.body1__blue {
+  font-size: var(--typography-body1);
+  color: color.$sky900-70;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: var(--typography-line-height);
+}
+.text-bold {
+  font-weight: 700;
 }

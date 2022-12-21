@@ -1,0 +1,42 @@
+@use "../../styles/mixin.scss" as mixin;
+
+.discountWrapper {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   &:hover {
+      background: red;
+   }
+   @include mixin.tablet {
+      background: mixin.$bg-gray;
+   }
+}
+
+.discountContext {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   flex-basis: 33%;
+   background: rgb(107 114 128);
+   font-size: 18px;
+   color: white;
+   padding: 16px 0px;
+   @include mixin.tablet {
+      font-size: 24px;
+   }
+}
+.value {
+   font-weight: bold;
+   font-size: 25px;
+   @include mixin.tablet {
+      font-size: 48px;
+   }
+   @include mixin.tablet {
+      font-size: 60px;
+   }
+}
+.list {
+   display: flex;
+   flex-basis: 66%;
+   justify-content: space-between;
+}
