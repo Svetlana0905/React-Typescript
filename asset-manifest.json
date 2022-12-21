@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/React-Typescript/static/css/main.59d9732a.css",
-    "main.js": "/React-Typescript/static/js/main.eda5959a.js",
+    "main.css": "/React-Typescript/static/css/main.d160c13d.css",
+    "main.js": "/React-Typescript/static/js/main.6ac8f578.js",
+    "static/media/2.jpg": "/React-Typescript/static/media/2.68e67454bafc9d061efc.jpg",
+    "static/media/4.jpg": "/React-Typescript/static/media/4.ebbe231bee95cffc971b.jpg",
+    "static/media/3.jpg": "/React-Typescript/static/media/3.c8df9ab85d7385e2b37c.jpg",
     "static/media/1.jpg": "/React-Typescript/static/media/1.27e1c734572b7d82edc3.jpg",
-    "static/media/2.jpg": "/React-Typescript/static/media/2.f3df4ac92a5320888e8d.jpg",
-    "static/media/4.jpg": "/React-Typescript/static/media/4.da0cffac4d1d567f5453.jpg",
-    "static/media/3.jpg": "/React-Typescript/static/media/3.3c658370def7a056f495.jpg",
     "static/media/delivery.svg": "/React-Typescript/static/media/delivery.653bb8f0f98f71611031.svg",
     "static/media/logo.svg": "/React-Typescript/static/media/logo.e63717a0d738b1f12a141bec0b8b5f36.svg",
     "static/media/question.svg": "/React-Typescript/static/media/question.91a7df43116efe9f48c0e48ac6b68d55.svg",
@@ -19,11 +19,11 @@
     "static/media/basket.svg": "/React-Typescript/static/media/basket.cffd7ed50177b2ee57b76806ad15c8c9.svg",
     "static/media/home.svg": "/React-Typescript/static/media/home.ed405368a8a3b6aed3c838539790812f.svg",
     "index.html": "/React-Typescript/index.html",
-    "main.59d9732a.css.map": "/React-Typescript/static/css/main.59d9732a.css.map",
-    "main.eda5959a.js.map": "/React-Typescript/static/js/main.eda5959a.js.map"
+    "main.d160c13d.css.map": "/React-Typescript/static/css/main.d160c13d.css.map",
+    "main.6ac8f578.js.map": "/React-Typescript/static/js/main.6ac8f578.js.map"
   },
   "entrypoints": [
-    "static/css/main.59d9732a.css",
-    "static/js/main.eda5959a.js"
+    "static/css/main.d160c13d.css",
+    "static/js/main.6ac8f578.js"
   ]
 }
