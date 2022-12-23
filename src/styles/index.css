@@ -2,15 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.black {
-  fill: black;
+body {
+  @apply min-h-screen;
 }
-.white {
-  fill: white;
-}
-.gray {
-  fill: gray;
-}
-.red {
-  fill: red;
+#root {
+  @apply min-h-screen;
 }

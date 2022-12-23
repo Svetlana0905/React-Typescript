@@ -1,0 +1,34 @@
+:root {
+   --typography-h1: 50px;
+   --typography-h2: 40px;
+   --typography-h3: 30px;
+   --typography-h4: 26px;
+   --typography-subtitle1: 24px;
+   --typography-subtitle2: 22px;
+   --typography-body1: 20px;
+   --typography-line-height: 1.25;
+}
+
+@media (max-width: 1024px) {
+   :root {
+      --typography-h1: 40px;
+      --typography-h2: 30px;
+      --typography-h3: 24px;
+      --typography-h4: 20px;
+      --typography-subtitle1: 22px;
+      --typography-subtitle2: 20px;
+      --typography-body1: 16px;
+   }
+}
+
+@media (max-width: 768px) {
+   :root {
+      --typography-h1: 34px;
+      --typography-h2: 28px;
+      --typography-h3: 20px;
+      --typography-h4: 20px;
+      --typography-subtitle1: 22px;
+      --typography-subtitle2: 20px;
+      --typography-body1: 16px;
+   }
+}

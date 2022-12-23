@@ -1,142 +1,58 @@
-import "./buttons.scss";
-import { FC } from "react";
+import styles from "./Button.module.scss";
+import classNames from "classnames/bind";
+import { ComponentProps, ElementType } from "react";
+import cn from "classnames";
 
-interface ButtonProps {
+let cx = classNames.bind(styles);
+
+type ButtonOwnProps<E extends ElementType = ElementType> = {
   handleClick?: () => void;
   children?: React.ReactNode;
-  type: any;
+  primary?: boolean;
+  secondary?: boolean;
+  delete_btn?: boolean;
+  liked_btn?: boolean;
+  yellow_btn?: boolean;
+  burger_btn?: boolean;
   triggerStyle?: boolean;
-  disabled?: boolean;
-  buttonStyle?: string;
-  ariaLabel?: string;
+  as?: E;
+};
+
+type ButtonProps<E extends ElementType> = ButtonOwnProps<E> &
+  Omit<ComponentProps<E>, keyof ButtonOwnProps>;
+
+const defaultElement = "button";
+
+export default function Button<E extends ElementType = typeof defaultElement>({
+  handleClick,
+  children,
+  primary,
+  secondary,
+  delete_btn,
+  liked_btn,
+  yellow_btn,
+  burger_btn,
+  triggerStyle,
+  as,
+  ...otherProps
+}: ButtonProps<E>) {
+  const classes = cn({
+    primary,
+    secondary,
+    delete_btn,
+    liked_btn,
+    yellow_btn,
+    burger_btn,
+  });
+  const TagName = as || defaultElement;
+
+  const btnStyle = cx(classes, {
+    burger_btn__open: triggerStyle,
+  });
+
+  return (
+    <TagName className={btnStyle} {...otherProps}>
+      {children}
+    </TagName>
+  );
 }
-
-export const NavBarButton: FC<ButtonProps> = ({
-  children,
-  handleClick,
-  buttonStyle,
-  type,
-}) => {
-  return (
-    <button onClick={handleClick} className={buttonStyle} type={type}>
-      {children && children}
-    </button>
-  );
-};
-
-export const StandartButton: FC<ButtonProps> = ({
-  type,
-  handleClick,
-  children,
-}) => {
-  return (
-    <button
-      type={type}
-      className="py-2 px-4 border bg-yellow-400 hover:text-white rounded-lg"
-      onClick={handleClick}
-    >
-      {children}
-    </button>
-  );
-};
-
-export const RoundButton: FC<ButtonProps> = ({
-  type,
-  handleClick,
-  children,
-}) => {
-  return (
-    <button type={type} className="round-button" onClick={handleClick}>
-      {children}
-    </button>
-  );
-};
-
-export const ProductButton: FC<ButtonProps> = ({
-  children,
-  handleClick,
-  triggerStyle,
-  type,
-  ariaLabel,
-}) => {
-  return (
-    <button
-      onClick={handleClick}
-      className={
-        triggerStyle
-          ? "product-button product-button__active"
-          : "product-button "
-      }
-      type={type}
-      aria-label={ariaLabel}
-    >
-      {children}
-    </button>
-  );
-};
-
-export const DeleteButton: FC<ButtonProps> = ({
-  children,
-  handleClick,
-  triggerStyle,
-  type,
-  ariaLabel,
-}) => {
-  return (
-    <button
-      onClick={handleClick}
-      className={
-        triggerStyle
-          ? "product-button product-button__delete product-button__delete-active"
-          : "product-button product-button__delete"
-      }
-      type={type}
-      aria-label={ariaLabel}
-    >
-      {children}
-    </button>
-  );
-};
-export const LikedProductButton: FC<ButtonProps> = ({
-  children,
-  handleClick,
-  triggerStyle,
-  type,
-  ariaLabel,
-}) => {
-  return (
-    <button
-      onClick={handleClick}
-      type={type}
-      disabled={triggerStyle}
-      aria-label={ariaLabel}
-      className={
-        triggerStyle ? "liked-button" : "liked-button liked-button__disabled"
-      }
-    >
-      {children}
-      <span className="absolute lef-0 top-0 opacity-50 bg-white w-48 h-6 text-start pl-4 pt-2 text-xs">
-        {triggerStyle ? "Добавлен" : "Добавить в избранные"}
-      </span>
-    </button>
-  );
-};
-export const AddToCartButton: FC<ButtonProps> = ({
-  children,
-  handleClick,
-  // triggerStyle,
-  type,
-  ariaLabel,
-}) => {
-  return (
-    <button
-      onClick={handleClick}
-      type={type}
-      // disabled={triggerStyle}
-      aria-label={ariaLabel}
-      className="add-cart-button"
-    >
-      {children}
-    </button>
-  );
-};

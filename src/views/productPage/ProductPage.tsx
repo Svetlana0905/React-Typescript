@@ -1,3 +1,4 @@
+import styles from "./ProductPage.module.scss";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hook";
 import { fetchProducts } from "../../stor/actions/productActions";
@@ -15,7 +16,7 @@ export const ProductPage: React.FC = () => {
 
   return (
     <>
-      <div className="container mx-auto max-w-2xl pt-5">
+      <div className={styles.product_page}>
         {loading && <Loading />}
         {error && <ErrorMessage error={error} />}
         {products.map((product) => (

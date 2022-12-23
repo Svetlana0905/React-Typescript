@@ -1,0 +1,58 @@
+@use "../../../../styles/shared.scss" as color;
+@use "../../../../styles/mixin.scss" as mixin;
+
+.bottom_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 1.25rem;
+  color: color.$white;
+  background: color.$gray500;
+  box-shadow: color.$box-shadow-slate-400-50;
+
+  &__title {
+    font-weight: 500;
+    display: none;
+
+    @include mixin.tablet {
+      display: block;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1.75rem;
+  }
+}
+
+.auth,
+.liked-goods,
+.basket {
+  display: flex;
+  column-gap: 0.375rem;
+}
+
+.isHidden {
+  display: block;
+  width: 0;
+  height: 0;
+  transform: scale(0);
+}
+
+.isVisible {
+  transform: scale(1);
+}
+
+.badje {
+  width: 1rem;
+  height: 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  border-radius: 100%;
+  background-color: rgb(185 28 28);
+  text-align: center;
+  margin-left: -12px;
+  z-index: 20;
+}

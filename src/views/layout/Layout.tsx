@@ -1,15 +1,15 @@
 import { Outlet } from "react-router-dom";
-import { SideNav } from "../components/navigation/SideNav";
-import { Header } from "../components/ui/header/Header";
-import navSidebarConfig from "../config/navSidebarConfig";
-import { useAppSelector } from "../hook";
+import { SideNav } from "../../components/navigation/SideNav";
+import { Header } from "../../components/ui/header/Header";
+import navSidebarConfig from "../../config/navSidebarConfig";
+import { useAppSelector } from "../../hook";
 
 export const Layout: React.FC = () => {
   const { message } = useAppSelector((state) => state.product);
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <div className="flex flex-row justify-between w-full h-full min-h-screen">
+      <div className="relative flex flex-row justify-between w-full grow shrink-0">
         <SideNav props={navSidebarConfig} />
         <main className="w-full">
           <div
@@ -24,6 +24,6 @@ export const Layout: React.FC = () => {
           <Outlet></Outlet>
         </main>
       </div>
-    </>
+    </div>
   );
 };

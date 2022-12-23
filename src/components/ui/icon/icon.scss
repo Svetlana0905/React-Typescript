@@ -1,9 +1,17 @@
 .icon-wrapper {
   @apply relative self-center inline-block h-5 w-5;
+
   & svg {
     @apply absolute h-5 w-5;
   }
 }
+
+.no svg {
+  fill: black;
+  width: 25px;
+  height: 25px;
+}
+
 .active svg {
   fill: red;
   width: 25px;

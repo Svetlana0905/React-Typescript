@@ -1,0 +1,50 @@
+@use "../../styles/shared.scss" as color;
+// @use "../../styles/mixin.scss" as mixin;
+
+.product_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background: color.$slate100;
+  box-shadow: color.$slate300;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    border-radius: 1rem;
+    box-shadow: color.$box-shadow-slate-600-40;
+  }
+
+  &__category {
+    color: color.$sky900-70;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__btnBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-self: flex-end;
+  }
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details>summary {
+  list-style-type: none;
+}
+
+summary {
+  padding: 0.5rem 1.5rem;
+}

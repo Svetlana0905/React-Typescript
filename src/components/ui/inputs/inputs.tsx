@@ -1,3 +1,4 @@
+import styles from "./Inputs.module.scss";
 import { FC } from "react";
 
 interface StandartInputProps {
@@ -5,6 +6,7 @@ interface StandartInputProps {
   setValue: (event: string) => void;
   placeholder?: string;
   label: string;
+  type?: string;
 }
 
 export const StandartInput: FC<StandartInputProps> = ({
@@ -12,12 +14,13 @@ export const StandartInput: FC<StandartInputProps> = ({
   setValue,
   placeholder,
   label,
+  type,
 }) => {
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
   return (
-    <label className="flex flex-col gap-2">
+    <label className={styles.label}>
       <span>{label}</span>
       <input
         type="text"

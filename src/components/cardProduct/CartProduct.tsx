@@ -1,27 +1,53 @@
-import { motion } from "framer-motion";
+import styles from "./CartProduct.module.scss";
 
+import { motion } from "framer-motion";
 import { IProductLiked } from "../../types/types";
 import { SubtitleText } from "../../components/ui/text/Text";
-import { DeleteButton } from "../ui/buttons/buttons";
+import Button from "../ui/buttons/buttons";
 import { useState } from "react";
+import { ImageProduct } from "../ui/images/Images";
 
 interface ProductProps {
   props?: IProductLiked;
 }
 
-const textAnimation = {
+const imageAnimation = {
   hidden: {
-    x: -1000,
     opacity: 0,
+    scale: 0.5,
+    borderTopLeftRadius: 500,
+    borderBottomRightRadius: 500,
+    transition: {
+      duration: 2,
+      type: "spring",
+    },
   },
   visible: {
-    x: 0,
     opacity: 1,
+    scale: 1,
+    borderTopLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    transition: {
+      duration: 2,
+      type: "spring",
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.5,
+    borderTopLeftRadius: 500,
+    borderBottomRightRadius: 500,
+    transition: {
+      duration: 1,
+      type: "spring",
+    },
   },
 };
 
 export const CartProduct: React.FC<ProductProps> = ({ props }) => {
   const [details, setDetails] = useState(false);
+  // console.log(details);
+
   return (
     <>
       {props ? (
@@ -29,31 +55,36 @@ export const CartProduct: React.FC<ProductProps> = ({ props }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ amount: 0.3 }}
-          className="relative flex flex-row bg-slate-100 p-5 rounded-2xl gap-10 justify-between shadow-slate-300 shadow-md hover:shadow-lg hover:shadow-slate-600/40"
+          className={styles.cart_product}
         >
-          <motion.div variants={textAnimation} className="flex flex-col gap-4">
+          <motion.div
+            variants={imageAnimation}
+            initial="hidden"
+            animate="visible"
+            className={styles.cart_product__inner}
+          >
             <SubtitleText>{props.title}</SubtitleText>
-            <img
-              src={props.image}
-              alt={props.title}
-              className="product-image"
+            <ImageProduct
+              title={props.title}
+              path={props.image}
+              class="product-image"
             />
             <p>
-              <span className="text-sky-900/70">Категория: </span>
+              <span className="body1__blue">Категория: </span>
               {props.category}
             </p>
-            <p className="">{props.description}</p>
+            <p>{props.description}</p>
           </motion.div>
-          <div className="flex flex-col justify-between shrink-0">
-            <DeleteButton
-              handleClick={() => setDetails((prev) => !prev)}
-              triggerStyle={details}
+          <div className={styles.cart_product__bottom}>
+            <Button
               type="button"
-              children="Удалить из корзины"
+              onClick={() => setDetails((prev) => !prev)}
+              delete_btn
+              children="Из корзины"
             />
-            <p> {props.count}</p>
-            <p className="font-bold ">
-              <span className="text-sky-900/70 font-normal">Цена: </span>
+            <p>Количество: {props.count}</p>
+            <p className="text-bold">
+              <span className="body1__blue">Цена: </span>
               {props.price}
             </p>
           </div>

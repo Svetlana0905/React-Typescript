@@ -1,0 +1,30 @@
+@use "../../../styles/shared.scss" as color;
+
+.title_underline {
+  position: relative;
+  color: color.$sky900-70;
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    margin-bottom: 0.125rem;
+    height: 2px;
+    background: color.$sky900-70;
+    opacity: 0;
+    width: 0;
+    transition: all ease-in-out 0.5s;
+  }
+
+  &:hover::after {
+    opacity: 1;
+    width: 50%;
+    transform: translate(50%);
+  }
+}
+
+.subtitle {
+  color: color.$gray900;
+}

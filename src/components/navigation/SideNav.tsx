@@ -1,30 +1,39 @@
+import styles from "./SideNav.module.scss";
 import { Link } from "react-router-dom";
 import { INavLinks, ISub } from "../../types/types";
+import { useAppSelector } from "../../hook";
+import classNames from "classnames/bind";
+
+let cx = classNames.bind(styles);
 
 interface ProductProps {
   props: Array<INavLinks<ISub>>;
 }
 
 export const SideNav: React.FC<ProductProps> = ({ props }) => {
+  let isOpen = useAppSelector((state) => state.sidebar.status);
+
+  const btnStyle = cx(styles.nav, {
+    nav__open: isOpen,
+  });
+
+  console.log(isOpen + " isOpen");
   return (
-    <nav className="flex flex-col gap-5 w-60 pl-3 pt-4 bg-gray-100 min-h-full shadow-sky-800/50 shadow-md hover:shadow-xl hover:shadow-sky-900/50">
+    <nav className={btnStyle}>
       {props.map((menu) =>
         menu.submenu ? (
-          <div key={menu.key}>
+          <div key={menu.key} className={styles.nav__link_block}>
             <Link
-              className="text-xl hover:font-medium text-sky-800 hover:text-slate-700 transition-all ease-in-out duration-200"
+              className={styles.nav__link_title}
               to={menu?.path ? menu.path : ""}
             >
               {menu.title}
             </Link>
-            <div>
+            <div className={styles.nav__links_items}>
               {menu.submenu.map((item) => (
-                <p key={item.key} className="flex gap-2">
+                <p key={item.key} className={styles.nav__sublink_block}>
                   {item.icon}
-                  <Link
-                    className="hover:font-medium text-sky-800/90 hover:text-slate-700 transition-all ease-in-out duration-200"
-                    to={item.path}
-                  >
+                  <Link className={styles.nav__link} to={item.path}>
                     {item.title}
                   </Link>
                 </p>

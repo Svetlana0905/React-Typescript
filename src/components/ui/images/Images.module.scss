@@ -1,0 +1,9 @@
+.product_image {
+   max-width: 250px;
+
+   &__img {
+      height: 6rem;
+      width: auto;
+      object-fit: cover;
+   }
+}

@@ -1,0 +1,163 @@
+@use "../../../styles/shared.scss" as color;
+@use "../../../styles/mixin.scss" as mixin;
+
+.primary,
+.secondary,
+.liked_btn,
+.delete_btn,
+.yellow_btn {
+  position: relative;
+  cursor: pointer;
+  max-width: 200px;
+  max-height: 40px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.5rem;
+  align-self: flex-end;
+}
+
+.yellow_btn {
+  background: color.$yellow;
+}
+
+.liked_btn {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  padding-left: 0;
+  padding-top: 0;
+  align-self: flex-start;
+
+  & span {
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    height: 1.5rem;
+    text-align: start;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+.primary {
+  background-color: color.$slate300;
+  box-shadow: color.$box-shadow-slate-300-50;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    color: color.$white;
+    background-color: color.$gray500;
+    box-shadow: color.$box-shadow-slate-400-50;
+  }
+}
+
+.secondary {
+  align-self: flex-end;
+  border-width: 1px;
+  border-radius: 0.5rem;
+  background-color: color.$blue300;
+  box-shadow: color.$box-shadow-slate-300-50;
+  border-style: none;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    color: color.$white;
+    background-color: color.$blue500;
+    box-shadow: color.$box-shadow-blue400-50;
+  }
+}
+
+.delete_btn {
+  color: color.$white;
+  background-color: color.$red600;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    color: color.$white;
+    background-color: color.$red800;
+  }
+}
+
+.burger_btn {
+  position: relative;
+  width: 36px;
+  height: 26px;
+  background: transparent;
+  border: none;
+  z-index: 3;
+  cursor: pointer;
+  display: block;
+
+  @include mixin.tablet {
+    display: none;
+  }
+
+  & span {
+    left: 0px;
+  }
+
+  & span:nth-child(1) {
+    top: 0px;
+  }
+
+  & span:nth-child(3) {
+    bottom: 0px;
+  }
+
+  & span:nth-child(2) {
+    top: 12px;
+  }
+
+  &__open span:nth-child(2) {
+    display: none;
+  }
+
+  &__open span:nth-child(1) {
+    top: 50%;
+    transform: rotate(45deg);
+  }
+
+  &__open span:nth-child(3) {
+    top: 50%;
+    transform: rotate(-45deg);
+  }
+}
+
+.burger_btn span {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: color.$white;
+  transition: all ease-in-out 0.3s;
+
+
+}
+
+// .burger_btn span:nth-child(1) {
+//   top: 0px;
+// }
+
+// .burger_btn span:nth-child(3) {
+//   bottom: 0px;
+// }
+
+// .burger_btn span:nth-child(2) {
+//   top: 12px;
+// }
+
+// .burger_btn__open span:nth-child(2) {
+//   display: none;
+// }
+
+// .burger_btn__open span:nth-child(1) {
+//   top: 50%;
+//   transform: rotate(45deg);
+// }
+
+// .burger_btn__open span:nth-child(3) {
+//   top: 50%;
+//   transform: rotate(-45deg);
+// }

@@ -31,6 +31,7 @@ const getIcon = (type: IconType): JSX.Element =>
   IconTypes.get(type) as JSX.Element;
 
 export const Icon: React.FC<IIconProps> = ({ className, type, ...rest }) => {
+  // console.log(className);
   return (
     <span className={className} {...rest}>
       {getIcon(type)}
