@@ -1,6 +1,6 @@
 :root {
-   --typography-h1: 60px;
-   --typography-h2: 50px;
+   --typography-h1: 50px;
+   --typography-h2: 40px;
    --typography-h3: 30px;
    --typography-h4: 26px;
    --typography-subtitle1: 24px;
@@ -11,9 +11,9 @@
 
 @media (max-width: 1024px) {
    :root {
-      --typography-h1: 50px;
-      --typography-h2: 40px;
-      --typography-h3: 26px;
+      --typography-h1: 40px;
+      --typography-h2: 30px;
+      --typography-h3: 24px;
       --typography-h4: 20px;
       --typography-subtitle1: 22px;
       --typography-subtitle2: 20px;
@@ -23,7 +23,7 @@
 
 @media (max-width: 768px) {
    :root {
-      --typography-h1: 32px;
+      --typography-h1: 34px;
       --typography-h2: 28px;
       --typography-h3: 20px;
       --typography-h4: 20px;

@@ -1,7 +1,7 @@
 @use "../../styles/shared.scss" as color;
 @use "../../styles/mixin.scss" as mixin;
 
-.cartProduct {
+.cart_product {
    position: relative;
    display: flex;
    flex-direction: row;

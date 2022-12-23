@@ -1,10 +1,9 @@
 import styles from "./CartProduct.module.scss";
 
 import { motion } from "framer-motion";
-
 import { IProductLiked } from "../../types/types";
 import { SubtitleText } from "../../components/ui/text/Text";
-import { DeleteButton } from "../ui/buttons/buttons";
+import Button from "../ui/buttons/buttons";
 import { useState } from "react";
 import { ImageProduct } from "../ui/images/Images";
 
@@ -47,6 +46,7 @@ const imageAnimation = {
 
 export const CartProduct: React.FC<ProductProps> = ({ props }) => {
   const [details, setDetails] = useState(false);
+  // console.log(details);
 
   return (
     <>
@@ -55,34 +55,34 @@ export const CartProduct: React.FC<ProductProps> = ({ props }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ amount: 0.3 }}
-          className={styles.cartProduct}
+          className={styles.cart_product}
         >
           <motion.div
             variants={imageAnimation}
             initial="hidden"
             animate="visible"
-            className={styles.cartProduct__inner}
+            className={styles.cart_product__inner}
           >
             <SubtitleText>{props.title}</SubtitleText>
             <ImageProduct
               title={props.title}
               path={props.image}
-              class={"product-image"}
+              class="product-image"
             />
             <p>
               <span className="body1__blue">Категория: </span>
               {props.category}
             </p>
-            <p className="">{props.description}</p>
+            <p>{props.description}</p>
           </motion.div>
-          <div className={styles.cartProduct__bottom}>
-            <DeleteButton
-              handleClick={() => setDetails((prev) => !prev)}
-              triggerStyle={details}
+          <div className={styles.cart_product__bottom}>
+            <Button
               type="button"
-              children="Удалить из корзины"
+              onClick={() => setDetails((prev) => !prev)}
+              delete_btn
+              children="Из корзины"
             />
-            <p> {props.count}</p>
+            <p>Количество: {props.count}</p>
             <p className="text-bold">
               <span className="body1__blue">Цена: </span>
               {props.price}

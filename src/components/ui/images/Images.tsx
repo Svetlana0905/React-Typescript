@@ -9,11 +9,11 @@ interface ImageProps {
 
 export const ImageProduct: React.FC<ImageProps> = (props) => {
   return (
-    <div className={styles.productImage}>
+    <div className={styles.product_image}>
       <img
         src={props.path}
         alt={props.title}
-        className={styles.productImage__img}
+        className={styles.product_image__img}
       />
     </div>
   );

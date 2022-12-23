@@ -1,0 +1,44 @@
+@use "../../styles/shared.scss" as color;
+@use "../../styles/mixin.scss" as mixin;
+
+.home_page {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   margin: 0 auto;
+   height: 100%;
+
+   &__inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      flex: 1 1 auto;
+
+      @include mixin.desktop {
+         flex-direction: row;
+      }
+   }
+
+   &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 33.333333%;
+      flex-shrink: 0;
+      gap: 1.25rem;
+      padding: 25px 10px;
+   }
+
+   & h1 {
+      color: color.$sky900-70;
+   }
+
+   & h3 {
+      color: color.$slate700;
+      margin-bottom: 1.8rem;
+
+   }
+}

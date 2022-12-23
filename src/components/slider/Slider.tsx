@@ -23,8 +23,8 @@ export const Slider = () => {
     hidden: {
       opacity: 0,
       scale: 0.5,
-      borderTopLeftRadius: 500,
-      borderBottomRightRadius: 500,
+      borderTopLeftRadius: "50%",
+      borderBottomRightRadius: "50%",
       transition: {
         duration: 1.5,
       },
@@ -41,8 +41,8 @@ export const Slider = () => {
     exit: {
       opacity: 0,
       scale: 0.5,
-      borderTopLeftRadius: 500,
-      borderBottomRightRadius: 500,
+      borderTopLeftRadius: "50%",
+      borderBottomRightRadius: "50%",
       transition: {
         duration: 1,
         type: "spring",
@@ -56,24 +56,6 @@ export const Slider = () => {
         <motion.img
           key={slideIndex}
           src={sliderData[slideIndex].imgpath}
-          // initial={{
-          //   opacity: 0,
-          //   scale: 0.5,
-          //   borderRadius: 250,
-          // }}
-          // animate={{
-          //   opacity: 1,
-          //   scale: 1,
-          //   borderRadius: 0,
-          // }}
-          // exit={{
-          //   opacity: 0,
-          //   scale: 0.5,
-          //   borderRadius: 250,
-          // }}
-          // transition={{
-          //   duration: 0.5,
-          // }}
           variants={imageAnimation}
           initial="hidden"
           animate="visible"

@@ -1,13 +1,9 @@
-import "./product.scss";
+import styles from "./Product.module.scss";
 
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { IProduct, IProductLiked } from "../../types/types";
-import {
-  ProductButton,
-  LikedProductButton,
-  AddToCartButton,
-} from "../ui/buttons/buttons";
+import Button from "../ui/buttons/buttons";
 import { ImageProduct } from "../ui/images/Images";
 import { TextUnderline } from "../ui/text/Text";
 import { useAppDispatch, useAppSelector } from "../../hook";
@@ -21,7 +17,7 @@ interface ProductProps {
 
 const blockAnimation = {
   hidden: {
-    x: -500,
+    x: -250,
     opacity: 0,
     transition: {
       duration: 2,
@@ -42,7 +38,7 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
   let likeArr = useAppSelector((state) => state.likedProduct.products);
   const dispath = useAppDispatch();
   const [details, setDetails] = useState(false);
-  const [statusButton, setStatus] = useState(false);
+  const [statusLiked, setStatus] = useState(false);
   const [count, setCount] = useState(1);
   const inputRef = useRef<HTMLElement>(null);
 
@@ -57,8 +53,9 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
 
   function addLikeProduct(e: IProduct) {
     setStatus(true);
-    dispath(addLikedProduct({ ...e, status: !statusButton }));
+    dispath(addLikedProduct({ ...e, status: !statusLiked }));
   }
+
   function addToCart(e: IProductLiked) {
     setCount(count + 1);
     dispath(addProduct({ ...e, count: count }));
@@ -66,7 +63,7 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
 
   return (
     <motion.article
-      className="product-block"
+      className={styles.product_block}
       ref={inputRef}
       initial="hidden"
       whileInView="visible"
@@ -74,41 +71,47 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
       variants={blockAnimation}
     >
       <TextUnderline children={props.title} />
-      {/* <img src={props.image} alt={props.title} className="product-image" /> */}
       <ImageProduct
         title={props.title}
         path={props.image}
-        class={"product-image"}
+        class="product-image"
       />
       <p>
-        <span className="text-sky-900/70">Категория:</span> {props.category}
+        <span className={styles.product_block__category}>Категория: </span>
+        {props.category}
       </p>
-      <p className="font-bold">
-        <span className="text-sky-900/70 font-normal">Цена:</span> {props.price}
+      <p>
+        <span className={styles.product_block__category}>Цена: </span>{" "}
+        <span className="text-bold">{props.price}</span>
       </p>
-      <div className="flex justify-between w-full">
-        <div className="flex flex-col gap-5 self-end">
-          <LikedProductButton
+      <div className={styles.product_block__bottom}>
+        <div className={styles.product_block__btnBlock}>
+          <Button
             type="button"
-            handleClick={() => addLikeProduct(props)}
-            triggerStyle={statusButton}
-            ariaLabel="Добавить в избранное"
+            onClick={() => addLikeProduct(props)}
+            liked_btn
+            disabled={statusLiked}
             children={
-              <Icon type="Heart" className={statusButton ? "active" : "no"} />
+              <>
+                <Icon type="Heart" className={statusLiked ? "active" : "no"} />
+                <span className={styles.liked_btn__text}>
+                  {statusLiked ? "Добавлен" : "Добавить в избранные"}
+                </span>
+              </>
             }
           />
-          <ProductButton
-            handleClick={() => setDetails((prev) => !prev)}
-            triggerStyle={details}
+          <Button
+            onClick={() => setDetails((prev) => !prev)}
+            primary
             type="button"
             children={details ? "Скрыть описание" : "Показать описание"}
           />
         </div>
-        <AddToCartButton
+        <Button
           type="button"
-          handleClick={() => addToCart(props)}
+          onClick={() => addToCart(props)}
+          secondary
           children="В корзину"
-          ariaLabel="Добавить в корзину"
         />
       </div>
       {details && <p>{props.description}</p>}

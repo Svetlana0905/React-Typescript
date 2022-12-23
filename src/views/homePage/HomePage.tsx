@@ -1,7 +1,8 @@
+import styles from "./HomePage.module.scss";
 import { motion } from "framer-motion";
-import { DiscountBlock } from "../../components/discounts/DiscountBlock";
+// import { DiscountBlock } from "../../components/discounts/DiscountBlock";
 import { Slider } from "../../components/slider/Slider";
-import { MStandartButton } from "../../components/ui/buttons/buttons";
+import Button from "../../components/ui/buttons/buttons";
 
 const textAnimation = {
   hidden: {
@@ -20,32 +21,19 @@ export const HomePage = () => {
     <motion.section
       initial="hidden"
       whileInView="visible"
-      className="flex flex-col justify-between items-center mx-auto h-full"
+      className={styles.home_page}
     >
-      <div className="flex flex-col lg:flex-row justify-between flex-auto w-full">
-        <div className="flex flex-col gap-y-9 p-5 basis-1/3 justify-center  shrink-0">
-          <div className="flex flex-col gap-y-4">
-            <motion.h1
-              variants={textAnimation}
-              custom={1}
-              className="text-sky-900/70"
-            >
-              <em>Store Name</em>
-            </motion.h1>
-            <motion.h3
-              variants={textAnimation}
-              custom={2}
-              className="text-gray-900/70"
-            >
-              <em>Any text about this Store</em>
-            </motion.h3>
-          </div>
-          <MStandartButton
-            type="button"
-            custom={3}
-            variants={textAnimation}
-            children="Страница товаров"
-          />
+      <div className={styles.home_page__inner}>
+        <div className={styles.home_page__content}>
+          <motion.h1 variants={textAnimation} custom={1}>
+            <em>Store Name</em>
+          </motion.h1>
+          <motion.h3 variants={textAnimation} custom={2}>
+            <em>Any text about this Store</em>
+          </motion.h3>
+          <motion.div custom={3} variants={textAnimation}>
+            <Button as="a" href="" children="Страница товаров" yellow_btn />
+          </motion.div>
         </div>
         <Slider />
       </div>

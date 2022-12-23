@@ -9,17 +9,17 @@ interface TopMenuProps {
 
 export const TopMenu: React.FC<TopMenuProps> = ({ props }) => {
   return (
-    <article className={styles.topMenu}>
+    <article className={styles.top_menu}>
       <p>
         <a href="/">
           <img
             src={logo}
             alt="Link for home page. Logotype"
-            className={styles.logo}
+            className={styles.top_menu__logo}
           />
         </a>
       </p>
-      <p className={styles.linkList}>
+      <p className={styles.top_menu__link_list}>
         {props?.length &&
           props.map((item) => (
             <a

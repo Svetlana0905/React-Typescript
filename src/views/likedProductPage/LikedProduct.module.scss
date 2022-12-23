@@ -1,0 +1,49 @@
+@use "../../styles//shared.scss" as color;
+@use "../../styles//typography.scss" as text;
+
+.liked_product {
+   width: 100%;
+   max-width: 42rem;
+   margin: 0 auto;
+   padding-top: 1.25rem;
+
+   &__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+      margin-bottom: 0.5rem;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      box-shadow: color.$box-shadow-slate-300-50;
+   }
+
+   &__bottom {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+   }
+
+   &__category {
+      color: color.$sky800;
+
+      & span {
+         font-size: var(--typography-body1);
+         color: color.$slate900;
+         font-weight: bold;
+      }
+   }
+
+   &__price {
+      font-size: var(--typography-subtitle2);
+      color: color.$sky800;
+      font-weight: normal;
+
+      & span {
+         color: color.$slate900;
+         font-weight: bold;
+      }
+   }
+
+
+}

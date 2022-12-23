@@ -1,13 +1,18 @@
 import styles from "./BottomMenu.module.scss";
-import { useAppSelector } from "../../../../hook";
+import { useAppSelector, useAppDispatch } from "../../../../hook";
 import { Link } from "react-router-dom";
 import { headerBottomNavTree } from "../../../../config/headerMenuConfig";
 import { useState, useEffect } from "react";
-import { BurgerBtn } from "../../buttons/buttons";
+import Button from "../../buttons/buttons";
+import { toggleSidebar } from "../../../../stor/actions/sidebarActions";
 
 export const BottomMenu: React.FC = () => {
+  const dispath = useAppDispatch();
   const { products } = useAppSelector((state) => state.likedProduct);
   const { products: cartProducts } = useAppSelector((state) => state.cart);
+  const [triggerStyle, setTrigger] = useState(
+    useAppSelector((state) => state.sidebar.status)
+  );
   const [countLiked, setNum] = useState(0);
   const [countCard, setCart] = useState(0);
 
@@ -19,11 +24,24 @@ export const BottomMenu: React.FC = () => {
     setCart(cartProducts.length);
   }, [cartProducts]);
 
+  useEffect(() => {
+    dispath(toggleSidebar(triggerStyle));
+  }, [triggerStyle, dispath]);
+
   return (
-    <article className={styles.bottomMenu}>
-      <span className={styles.bottomMenu__title}>React Typescript 2022</span>
-      <BurgerBtn type="button" />
-      <nav className={styles.bottomMenu__nav}>
+    <article className={styles.bottom_menu}>
+      <span className={styles.bottom_menu__title}>React Typescript 2022</span>
+      <Button
+        type="button"
+        burger_btn
+        triggerStyle={triggerStyle}
+        onClick={() => setTrigger(!triggerStyle)}
+      >
+        {Array.from({ length: 3 }).map((_, index) => (
+          <span key={index}></span>
+        ))}
+      </Button>
+      <nav className={styles.bottom_menu__nav}>
         {headerBottomNavTree.map((item) => (
           <Link
             to={item.path}

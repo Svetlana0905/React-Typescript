@@ -1,4 +1,4 @@
-import "./text.scss";
+import styles from "./Text.module.scss";
 import { FC } from "react";
 
 interface TextProps {
@@ -7,8 +7,8 @@ interface TextProps {
 }
 
 export const TextUnderline: FC<TextProps> = ({ children }) => {
-  return <h2 className="title-underline">{children}</h2>;
+  return <h2 className={styles.title_underline}>{children}</h2>;
 };
 export const SubtitleText: FC<TextProps> = ({ children }) => {
-  return <h3 className="text-lg text-gray-900">{children}</h3>;
+  return <h3 className={styles.subtitle}>{children}</h3>;
 };

@@ -2,27 +2,82 @@
 @use "../../styles/shared.scss" as color;
 
 .nav {
-   display: none;
    flex-direction: column;
-   gap: 1.25rem;
-   width: 240px;
+   position: absolute;
+   gap: 1.5rem;
    padding-top: 1rem;
-   padding-left: 1rem;
-   background-color: color.$gray200;
+   padding-left: 2rem;
    min-height: 100%;
-   @include mixin.tablet {
-        display: flex;
+   transform: translate(-530px, 0);
+   transition: all ease-in-out 0.6s;
+   z-index: 500;
+
+   &__open {
+      transform: translate(0, 0);
+      position: absolute;
+      display: flex;
+      width: 100%;
+      background: color.$gray900-90;
    }
+
+   &__link_block {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+   }
+
+   &__link_title {
+      color: color.$white;
+      font-size: 20px;
+   }
+
+   &__links_items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+   }
+
    &__link {
-      color: color.$sky800;
+      font-size: 18px;
+      color: color.$white;
+      padding-left: 10px;
       transition: all 0.5s ease-in-out;
+
       &:hover {
          color: color.$slate700;
          font-weight: 600;
       }
    }
-   &__sublinkBlock {
+
+   &__sublink-block {
       display: flex;
-      gap: 0.5rem;
+      gap: 1rem;
+   }
+}
+
+
+@include mixin.tablet {
+   .nav {
+      position: relative;
+      display: flex;
+      background-color: color.$gray200;
+      width: 260px;
+      padding-left: 1em;
+      transform: translate(0, 0);
+
+      &__link_title {
+         color: color.$slate700;
+         font-size: 20px;
+      }
+
+      &__link {
+         color: color.$sky800;
+         transition: all 0.5s ease-in-out;
+
+         &:hover {
+            color: color.$slate700;
+            font-weight: 600;
+         }
+      }
    }
 }
