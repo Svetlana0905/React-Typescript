@@ -1,8 +1,8 @@
 import styles from "./Product.module.scss";
 
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
-import { IProduct, IProductLiked } from "../../types/types";
+import { useState, useEffect } from "react";
+import { IProduct } from "../../types/types";
 import Button from "../ui/buttons/buttons";
 import { ImageProduct } from "../ui/images/Images";
 import { TextUnderline } from "../ui/text/Text";
@@ -15,32 +15,14 @@ interface ProductProps {
   props: IProduct;
 }
 
-const blockAnimation = {
-  hidden: {
-    x: -250,
-    opacity: 0,
-    transition: {
-      duration: 2,
-      type: "spring",
-    },
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 1.5,
-      type: "spring",
-    },
-  },
-};
-
 export const Product: React.FC<ProductProps> = ({ props }) => {
   let likeArr = useAppSelector((state) => state.likedProduct.products);
+  let cartProductArr = useAppSelector((state) => state.cart.products);
   const dispath = useAppDispatch();
   const [details, setDetails] = useState(false);
   const [statusLiked, setStatus] = useState(false);
-  const [count, setCount] = useState(1);
-  const inputRef = useRef<HTMLElement>(null);
+  const [statusCart, setStatusCart] = useState(false);
+  console.log(cartProductArr);
 
   useEffect(() => {
     if (likeArr.length) {
@@ -51,25 +33,27 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
     }
   }, [likeArr, props.id]);
 
+  useEffect(() => {
+    if (cartProductArr.length) {
+      const item = cartProductArr.filter(
+        (item) => item.cart && item.id === props.id
+      );
+      if (item.length) setStatusCart(true);
+    }
+  }, [cartProductArr, props.id]);
+
   function addLikeProduct(e: IProduct) {
     setStatus(true);
     dispath(addLikedProduct({ ...e, status: !statusLiked }));
   }
 
-  function addToCart(e: IProductLiked) {
-    setCount(count + 1);
-    dispath(addProduct({ ...e, count: count }));
+  function addToCart(e: IProduct) {
+    setStatusCart(true);
+    dispath(addProduct({ ...e, cart: !statusCart }));
   }
 
   return (
-    <motion.article
-      className={styles.product_block}
-      ref={inputRef}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ amount: 0.2 }}
-      variants={blockAnimation}
-    >
+    <article className={styles.product_block}>
       <TextUnderline children={props.title} />
       <ImageProduct
         title={props.title}
@@ -111,11 +95,12 @@ export const Product: React.FC<ProductProps> = ({ props }) => {
           type="button"
           onClick={() => addToCart(props)}
           secondary
-          children="В корзину"
+          disabled={statusCart}
+          children={statusCart ? "В корзине" : "В корзину"}
         />
       </div>
       {details && <p>{props.description}</p>}
-    </motion.article>
+    </article>
   );
 };
 

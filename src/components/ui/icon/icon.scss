@@ -1,8 +1,15 @@
 .icon-wrapper {
-  @apply relative self-center inline-block h-5 w-5;
+  position: relative;
+  align-self: center;
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
 
   & svg {
-    @apply absolute h-5 w-5;
+    position: absolute;
+    height: 1.25rem;
+    width: 1.25rem;
+    right: 6px;
   }
 }
 

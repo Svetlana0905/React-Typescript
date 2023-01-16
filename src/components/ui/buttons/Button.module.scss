@@ -68,6 +68,11 @@
     background-color: color.$blue500;
     box-shadow: color.$box-shadow-blue400-50;
   }
+
+  &:disabled {
+    background: color.$gray500;
+    color: color.$white;
+  }
 }
 
 .delete_btn {
@@ -132,32 +137,4 @@
   height: 2px;
   background: color.$white;
   transition: all ease-in-out 0.3s;
-
-
 }
-
-// .burger_btn span:nth-child(1) {
-//   top: 0px;
-// }
-
-// .burger_btn span:nth-child(3) {
-//   bottom: 0px;
-// }
-
-// .burger_btn span:nth-child(2) {
-//   top: 12px;
-// }
-
-// .burger_btn__open span:nth-child(2) {
-//   display: none;
-// }
-
-// .burger_btn__open span:nth-child(1) {
-//   top: 50%;
-//   transform: rotate(45deg);
-// }
-
-// .burger_btn__open span:nth-child(3) {
-//   top: 50%;
-//   transform: rotate(-45deg);
-// }

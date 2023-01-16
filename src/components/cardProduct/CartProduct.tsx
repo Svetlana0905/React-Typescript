@@ -1,14 +1,14 @@
 import styles from "./CartProduct.module.scss";
-
+import { useAppDispatch } from "../../hook";
+import { removeProductCart } from "../../stor/actions/cartActions";
 import { motion } from "framer-motion";
-import { IProductLiked } from "../../types/types";
+import { IProduct } from "../../types/types";
 import { SubtitleText } from "../../components/ui/text/Text";
 import Button from "../ui/buttons/buttons";
-import { useState } from "react";
 import { ImageProduct } from "../ui/images/Images";
 
 interface ProductProps {
-  props?: IProductLiked;
+  props?: IProduct;
 }
 
 const imageAnimation = {
@@ -45,8 +45,7 @@ const imageAnimation = {
 };
 
 export const CartProduct: React.FC<ProductProps> = ({ props }) => {
-  const [details, setDetails] = useState(false);
-  // console.log(details);
+  const dispath = useAppDispatch();
 
   return (
     <>
@@ -78,11 +77,11 @@ export const CartProduct: React.FC<ProductProps> = ({ props }) => {
           <div className={styles.cart_product__bottom}>
             <Button
               type="button"
-              onClick={() => setDetails((prev) => !prev)}
+              onClick={() => dispath(removeProductCart(props.id))}
               delete_btn
               children="Из корзины"
             />
-            <p>Количество: {props.count}</p>
+            {/* <p>Количество: {props.count}</p> */}
             <p className="text-bold">
               <span className="body1__blue">Цена: </span>
               {props.price}

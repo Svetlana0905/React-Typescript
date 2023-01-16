@@ -24,17 +24,8 @@ export interface IProduct {
   category: string;
   image: string;
   rating: IRating;
-}
-export interface IProductLiked {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: IRating;
   status?: boolean;
-  count?: number;
+  cart?: boolean;
 }
 
 export interface ISub {

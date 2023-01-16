@@ -6,10 +6,14 @@
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  padding: 0 1.25rem;
+  padding: 0 0.25rem;
   color: color.$white;
   background: color.$gray500;
   box-shadow: color.$box-shadow-slate-400-50;
+
+  @include mixin.tablet {
+    padding: 0 1.25rem;
+  }
 
   &__title {
     font-weight: 500;
@@ -42,7 +46,7 @@
 }
 
 .isVisible {
-  transform: scale(1);
+  transform: scale(0.8);
 }
 
 .badje {

@@ -15,14 +15,13 @@ export const ProductPage: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <div className={styles.product_page}>
-        {loading && <Loading />}
-        {error && <ErrorMessage error={error} />}
-        {products.map((product) => (
-          <Product props={product} key={product.id} />
-        ))}
-      </div>
-    </>
+    <div className={styles.product_page}>
+      {loading && <Loading />}
+      {error && <ErrorMessage error={error} />}
+
+      {products.map((product) => (
+        <Product props={product} key={product.id} />
+      ))}
+    </div>
   );
 };

@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IProductLiked } from "../../types/types";
+import { IProduct } from "../../types/types";
 
 interface LikedProdState {
-  products: IProductLiked[];
+  products: IProduct[];
 }
 
 const initialState: LikedProdState = {
@@ -13,7 +13,7 @@ export const likedProductSlice = createSlice({
   name: "likedProd",
   initialState,
   reducers: {
-    addLikedProduct(state, action: PayloadAction<IProductLiked>) {
+    addLikedProduct(state, action: PayloadAction<IProduct>) {
       state.products.push(action.payload);
     },
     removeLikedProduct(state, action: PayloadAction<number>) {
