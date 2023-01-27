@@ -14,3 +14,6 @@ Home Page. + Слайдер
 
 Избранные товары
 ![3](https://user-images.githubusercontent.com/75973334/215093932-73680ec5-30fb-4a76-bf68-8afcb4122f68.jpg)
+
+Адаптив
+![4](https://user-images.githubusercontent.com/75973334/215094302-06323868-6976-4a01-a671-2fdd199c1aae.jpg)
